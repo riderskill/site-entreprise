@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIDERSKILL PRODUCTION | Expert Informatique, Streaming & Création Numérique</title>
+    <meta name="description" content="Services professionnels d'informatique, montage PC sur mesure, optimisation streaming et création numérique à Cosne-Cours-sur-Loire et à distance.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles CSS Intégrés pour performance optimale -->
+    <style>
+        :root {
+            --bg-primary: #0a0b0e;
+            --bg-secondary: #13151b;
+            --bg-card: #1a1d26;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #2d3748;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 11, 14, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .btn-cta-nav {
+            background-color: var(--accent);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-cta-nav:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-card);
+            border-color: var(--text-muted);
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero-card ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: var(--text-muted);
+        }
+
+        .hero-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-card li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Sections Générales */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grille Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">RIDERSKILL<span>.</span></a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Accueil</a>
+                <a href="services.html">Prestations</a>
+                <a href="tarifs.html">Tarifs</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Expertise Matériel, Streaming & <span>Création Numérique</span></h1>
+                <p>Solutions informatiques haut de gamme, montage PC sur mesure, optimisation de setups et accompagnement technique rigoureux pour particuliers, professionnels et créateurs.</p>
+                <div class="hero-buttons">
+                    <a href="tarifs.html" class="btn btn-primary">Voir nos tarifs</a>
+                    <a href="contact.html" class="btn btn-secondary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Standards d'Excellence</h3>
+                <ul>
+                    <li>Ancien professionnel de l'informatique</li>
+                    <li>Montage soigné & Cable management rigoureux</li>
+                    <li>Transparence totale et respect des délais</li>
+                    <li>Intervention sur site ou à distance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Aperçu Prestations -->
+        <section>
+            <div class="section-header">
+                <h2>Domaines d'Expertise</h2>
+                <p>Une maîtrise technique complète pour répondre à vos exigences les plus pointues.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Informatique & Matériel</h3>
+                    <p>Montage de PC Gaming ou bureautique, diagnostic de pannes, installation et configuration propre de systèmes Windows sur mesure.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Streaming & Broadcast</h3>
+                    <p>Configuration avancée OBS, intégration multi-plateformes (Twitch, Kick) et automatisation de chat pour créateurs de contenu exigeants.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Création & Digital</h3>
+                    <p>Conception de sites internet performants, chartes graphiques, overlays personnalisés et solutions numériques sur mesure.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>RIDERSKILL PRODUCTION</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Micro-entreprise spécialisée dans les prestations informatiques, le streaming et la création numérique.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="services.html">Prestations</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact & Devis</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informations Légales</h4>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="cgv.html">Conditions Générales de Vente (CGV)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RIDERSKILL PRODUCTION. Tous droits réservés.</p>
+            <p>SIRET : 504 712 043 00026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
