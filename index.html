@@ -3,358 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifs & Prestations | RIDERSKILL PRODUCTION</title>
-    <meta name="description" content="Découvrez les tarifs de RIDERSKILL PRODUCTION : Gamer, Particulier, Pro et Partenariats Studios à Cosne-Cours-sur-Loire.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Styles CSS Intégrés -->
+    <title>RIDERSKILL PRODUCTION | Expertise Hardware, Gaming & Streaming</title>
     <style>
         :root {
             --bg-primary: #0a0b0e;
             --bg-secondary: #13151b;
             --accent: #a855f7;
-            --accent-hover: #9333ea;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border: #2d3748;
-            --transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(10, 11, 14, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-main);
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .btn-cta-nav {
-            background-color: var(--accent);
-            color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-cta-nav:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Main Content */
-        main {
-            padding: 10rem 2rem 6rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .badge-expertise {
-            display: inline-block;
-            background-color: rgba(16, 185, 129, 0.15);
-            color: #10b981;
-            border: 1px solid #10b981;
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-
-        /* Partenariats & Studios Box */
-        .studios-box {
-            background-color: var(--bg-secondary);
-            border: 1px solid #a855f7;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
-        }
-
-        .studios-box h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: #a855f7;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        /* Tarifs Grid */
-        .tarifs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .tarif-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .tarif-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-main);
-            border-left: 3px solid var(--accent);
-            padding-left: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .service-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.9rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.95rem;
-        }
-
-        .service-row span:last-child {
-            font-weight: 700;
-            color: #10b981;
-            font-size: 1.05rem;
-        }
-
-        .btn-email {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.8rem;
-            width: 100%;
-            background: linear-gradient(135deg, #a855f7, #9333ea);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .btn-email:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 3rem 2rem 2rem;
-            margin-top: 6rem;
-            text-align: center;
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10, 11, 14, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: var(--text-main); }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+        .btn-cta-nav { background-color: var(--accent); color: white !important; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; }
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 1rem; background: linear-gradient(rgba(10, 11, 14, 0.75), rgba(10, 11, 14, 0.95)), url('img/fond-gaming.jpg') no-repeat center center/cover; }
+        .hero-content { max-width: 800px; z-index: 2; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+        .btn-primary { background-color: var(--accent); color: white; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; }
+        .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); padding: 0.9rem 2rem; border-radius: 8px; font-weight: 600; }
+        footer { background-color: var(--bg-secondary); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">RIDERSKILL<span>.</span></a>
             <nav class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="services.html">Prestations</a>
-                <a href="tarifs.html" style="color: var(--text-main);">Tarifs</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="index.html" class="active">Accueil</a>
+                <a href="tarifs.html">Tarifs</a>
                 <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <div class="page-header">
-            <h1>Nos Tarifs & Prestations</h1>
-            <div class="badge-expertise">Expertise 5070 Ti - Cosne-Cours-sur-Loire</div>
-        </div>
-
-        <!-- Bloc Partenariats & Studios -->
-        <div class="studios-box">
-            <h3>Partenariats & Studios (Expertise 5070 Ti)</h3>
-            <div class="service-row">
-                <span>Session Live Découverte (1h-2h)</span>
-                <span>40 €</span>
-            </div>
-            <div class="service-row">
-                <span>Clip Technique (Focus FPS / Températures)</span>
-                <span>30 €</span>
-            </div>
-            <div class="service-row" style="border-bottom: none;">
-                <span>Pack "Visibilité + Expertise" (Live + 1 Vidéo + Post)</span>
-                <span>60 €</span>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expertise Hardware & <span>Streaming</span></h1>
+            <p>Monteur PC passionné, spécialiste configuration gaming/pro et créateur de contenu à Cosne-Cours-sur-Loire.</p>
+            <div class="hero-buttons">
+                <a href="tarifs.html" class="btn-primary">Voir nos tarifs</a>
+                <a href="mailto:riderskill.pro@outlook.fr" class="btn-secondary">Nous contacter</a>
             </div>
         </div>
+    </section>
 
-        <!-- Grille des 3 types de profils (Gamer, Particulier, Pro) -->
-        <div class="tarifs-grid">
-            
-            <!-- Gamme Gaming -->
-            <div class="tarif-card" style="border-color: #10b981;">
-                <div>
-                    <h3 style="border-left-color: #10b981; color: #10b981;">🎮 Gamer</h3>
-                    <div class="service-row">
-                        <span>Montage PC Gaming complet</span>
-                        <span>100 €</span>
-                    </div>
-                    <div class="service-row" style="border-bottom: none;">
-                        <span>Remise en main propre (Cosne-Cours-sur-Loire)</span>
-                        <span style="color: #3b82f6; font-size: 0.9rem;">Inclus</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Particulier / Bureautique -->
-            <div class="tarif-card" style="border-color: #3b82f6;">
-                <div>
-                    <h3 style="border-left-color: #3b82f6; color: #3b82f6;">🏠 Particulier / Bureautique</h3>
-                    <div class="service-row">
-                        <span>Montage PC Bureautique</span>
-                        <span>70 €</span>
-                    </div>
-                    <div class="service-row" style="border-bottom: none;">
-                        <span>Remise en main propre (Cosne-Cours-sur-Loire)</span>
-                        <span style="color: #3b82f6; font-size: 0.9rem;">Inclus</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services & Ateliers / Pro -->
-            <div class="tarif-card" style="border-color: #a855f7;">
-                <div>
-                    <h3 style="border-left-color: #a855f7; color: #a855f7;">💼 Services & Ateliers</h3>
-                    <div class="service-row">
-                        <span>Installation / Réinstallation Windows</span>
-                        <span>45 € - 50 €</span>
-                    </div>
-                    <div class="service-row">
-                        <span>Assistance et Conseil (Tarif horaire)</span>
-                        <span>35 € - 45 € / h</span>
-                    </div>
-                    <div class="service-row" style="border-bottom: none;">
-                        <span>Diagnostic de panne (Forfait)</span>
-                        <span>30 € - 45 €</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Bouton Devis / Contact direct -->
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="mailto:riderskill.pro@outlook.fr?subject=Demande%20de%20devis%20-%20RIDERSKILL%20PRODUCTION&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20:%0A-%20Type%20de%20prestation%20:%20%0A-%20Détails%20du%20projet%20:%20" class="btn-email" style="max-width: 400px;">
-                ✉️ COMMANDER / CONTACTER PAR E-MAIL
-            </a>
-        </div>
-    </main>
-
-    <!-- Footer -->
     <footer>
         <p>SIRET : 504 712 043 00026 | RIDERSKILL PRODUCTION</p>
     </footer>
-
 </body>
 </html>
