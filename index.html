@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Devis | RIDERSKILL PRODUCTION</title>
-    <meta name="description" content="Contactez RIDERSKILL PRODUCTION pour vos demandes de devis, prestations informatiques et streaming.">
+    <title>Tarifs & Prestations | RIDERSKILL PRODUCTION</title>
+    <meta name="description" content="Découvrez les tarifs de RIDERSKILL PRODUCTION pour les partenariats, la gamme gaming, particulier et pro à Cosne-Cours-sur-Loire.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,31 +119,81 @@
 
         .page-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .page-header h1 {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .page-header h1 span {
             color: var(--accent);
         }
 
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
+        .badge-expertise {
+            display: inline-block;
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid #10b981;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
         }
 
-        .contact-grid {
+        /* Top Box (Partenariats) */
+        .partners-box {
+            background-color: var(--bg-secondary);
+            border: 1px solid #6366f1;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+
+        .partners-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-left: 3px solid #6366f1;
+            padding-left: 0.8rem;
+        }
+
+        .row-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 500;
+        }
+
+        .row-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Tarifs Grid */
+        .tarifs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-card {
+        .tarif-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -153,31 +203,29 @@
             justify-content: space-between;
         }
 
-        .contact-card h3 {
+        .tarif-card h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             color: var(--text-main);
             border-left: 3px solid var(--accent);
             padding-left: 0.8rem;
-        }
-
-        .info-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .info-group label {
-            display: block;
-            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 0.3rem;
         }
 
-        .info-group p {
-            color: var(--text-muted);
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.95rem;
+        }
+
+        .service-row span:last-child {
+            font-weight: 700;
+            color: #10b981;
+            font-size: 1.05rem;
         }
 
         .btn-email {
@@ -270,7 +318,7 @@
             <nav class="nav-links">
                 <a href="index.html">Accueil</a>
                 <a href="services.html">Prestations</a>
-                <a href="tarifs.html">Tarifs</a>
+                <a href="tarifs.html" style="color: var(--text-main);">Tarifs</a>
                 <a href="portfolio.html">Portfolio</a>
                 <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
             </nav>
@@ -280,48 +328,96 @@
     <!-- Main Content -->
     <main>
         <div class="page-header">
-            <h1>Contact & <span>Devis</span></h1>
-            <p>Un projet, une question technique ou une demande de devis personnalisé ? Contactez-moi directement par e-mail.</p>
+            <h1>Nos <span>Tarifs</span></h1>
+            <p>Transparence et expertise pour vos projets informatiques, gaming et partenariats streaming.</p>
+            <div class="badge-expertise">Expertise 5070 Ti</div>
         </div>
 
-        <div class="contact-grid">
-            <!-- Coordonnées -->
-            <div class="contact-card">
+        <!-- Bloc Partenariats & Studios -->
+        <div class="partners-box">
+            <h3>Partenariats & Studios (Expertise 5070 Ti)</h3>
+            <div class="row-item">
+                <span>Session Live Découverte (1h-2h)</span>
+                <span class="price-tag">40 €</span>
+            </div>
+            <div class="row-item">
+                <span>Clip Technique (Focus FPS / Températures)</span>
+                <span class="price-tag">30 €</span>
+            </div>
+            <div class="row-item">
+                <span>Pack "Visibilité + Expertise" (Live + 1 Vidéo + Post)</span>
+                <span class="price-tag">60 €</span>
+            </div>
+        </div>
+
+        <!-- Grille des 3 gammes -->
+        <div class="tarifs-grid">
+            
+            <!-- Gamme Gaming -->
+            <div class="tarif-card" style="border-color: #a855f7;">
                 <div>
-                    <h3>Informations & Entreprise</h3>
-                    <div class="info-group">
-                        <label>Entreprise</label>
-                        <p>RIDERSKILL PRODUCTION</p>
+                    <h3 style="border-left-color: #a855f7;">🎮 Gamme Gaming</h3>
+                    <div class="service-row">
+                        <span>Montage PC Gaming</span>
+                        <span>85 €</span>
                     </div>
-                    <div class="info-group">
-                        <label>Statut & SIRET</label>
-                        <p>Micro-entreprise<br>SIRET : 504 712 043 00026</p>
+                    <div class="service-row">
+                        <span>Installation Windows</span>
+                        <span>30 €</span>
                     </div>
-                    <div class="info-group">
-                        <label>Zone d'intervention</label>
-                        <p>Cosne-Cours-sur-Loire (France) & prestations à distance</p>
-                    </div>
-                    <div class="info-group">
-                        <label>Réactivité</label>
-                        <p>Réponse sous 24h à 48h ouvrées pour toute demande.</p>
+                    <div class="service-row" style="border-bottom: none;">
+                        <span>Conseil / Aide achat</span>
+                        <span>20 € / h</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Action E-mail Directe -->
-            <div class="contact-card" style="text-align: center; justify-content: center;">
+            <!-- Particulier -->
+            <div class="tarif-card" style="border-color: #f97316;">
                 <div>
-                    <h3>Envoyer une demande</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Cliquez sur le bouton ci-dessous pour ouvrir votre messagerie et m'envoyer directement votre demande de devis ou question.</p>
-                    <div class="info-group">
-                        <label>Adresse e-mail directe</label>
-                        <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 600;">riderskill.pro@outlook.fr</p>
+                    <h3 style="border-left-color: #f97316;">🏠 Particulier</h3>
+                    <div class="service-row">
+                        <span>Montage Bureautique</span>
+                        <span>55 €</span>
+                    </div>
+                    <div class="service-row" style="border-bottom: none;">
+                        <span>Conseil / Aide achat</span>
+                        <span>10 € / h</span>
                     </div>
                 </div>
-                <a href="mailto:riderskill.pro@outlook.fr?subject=Demande%20de%20devis%20-%20RIDERSKILL%20PRODUCTION&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20des%20informations%20ou%20un%20devis%20pour%20:%0A-%20Nom%20/%20Prénom%20:%20%0A-%20Type%20de%20prestation%20:%20%0A-%20Description%20du%20projet%20:%20" class="btn-email">
-                    ✉️ COMMANDER / CONTACTER PAR E-MAIL
-                </a>
             </div>
+
+            <!-- Gamme Pro -->
+            <div class="tarif-card" style="border-color: #3b82f6;">
+                <div>
+                    <h3 style="border-left-color: #3b82f6;">💼 Gamme Pro</h3>
+                    <div class="service-row">
+                        <span>Montage Stabilité</span>
+                        <span>85 €</span>
+                    </div>
+                    <div class="service-row">
+                        <span>Pack Full Pro</span>
+                        <span>115 €</span>
+                    </div>
+                    <div class="service-row">
+                        <span>Installation OS Pro</span>
+                        <span>35 €</span>
+                    </div>
+                    <div class="service-row" style="border-bottom: none;">
+                        <span>Conseil Expert</span>
+                        <span>35 € / h</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bouton Devis / Contact direct -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Une question ou besoin d'une prestation personnalisée ?</p>
+            <a href="mailto:riderskill.pro@outlook.fr?subject=Demande%20de%20devis%20-%20RIDERSKILL%20PRODUCTION&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20:%0A-%20Type%20de%20prestation%20:%20%0A-%20Détails%20du%20projet%20:%20" class="btn-email" style="max-width: 400px;">
+                ✉️ COMMANDER / CONTACTER PAR E-MAIL
+            </a>
         </div>
     </main>
 
