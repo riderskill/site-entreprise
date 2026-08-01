@@ -3,478 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifs & Grille de Prix | RIDERSKILL PRODUCTION</title>
-    <meta name="description" content="Consultez les tarifs transparents de RIDERSKILL PRODUCTION pour le montage PC, l'optimisation streaming, la configuration et la création numérique.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Styles CSS Intégrés -->
+    <title>Tarifs & Prestations | RIDERSKILL PRODUCTION</title>
     <style>
         :root {
             --bg-primary: #0a0b0e;
             --bg-secondary: #13151b;
-            --bg-card: #1a1d26;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
+            --bg-card: #181b22;
+            --accent: #a855f7;
+            --accent-glow: rgba(168, 85, 247, 0.2);
+            --success: #10b981;
+            --info: #3b82f6;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border: #2d3748;
-            --transition: all 0.3s ease;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.7; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* HEADER */
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10, 11, 14, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.05em; color: var(--text-main); }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); transition: color 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+        .btn-cta-nav { background: linear-gradient(135deg, var(--accent), #9333ea); color: white !important; padding: 0.65rem 1.4rem; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 15px var(--accent-glow); }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* MAIN CONTENT */
+        main { padding: 9rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+        .page-header { text-align: center; margin-bottom: 4rem; }
+        .page-header h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 900; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -0.01em; }
+        .badge-expertise { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid var(--success); padding: 0.5rem 1.4rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        /* STUDIOS SPECIAL BOX */
+        .studios-box { background: var(--bg-secondary); border: 1px solid var(--accent); border-radius: 16px; padding: 3rem; margin-bottom: 3.5rem; box-shadow: 0 10px 40px var(--accent-glow); }
+        .studios-box h3 { font-size: 1.5rem; margin-bottom: 2rem; color: var(--accent); text-transform: uppercase; text-align: center; font-weight: 800; letter-spacing: 0.03em; }
+        
+        /* GRIDS & CARDS */
+        .tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-bottom: 4rem; }
+        .tarif-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s, border-color 0.3s; }
+        .tarif-card:hover { transform: translateY(-4px); }
+        .tarif-card h3 { font-size: 1.4rem; margin-bottom: 2rem; border-left: 4px solid; padding-left: 1rem; text-transform: uppercase; font-weight: 800; }
+        
+        .service-row { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 1rem; }
+        .service-row:last-child { border-bottom: none; }
+        .service-row span:last-child { font-weight: 800; color: var(--success); font-size: 1.1rem; }
+        .service-row .info-tag { color: var(--info); font-size: 0.9rem; font-weight: 700; background: rgba(59, 130, 246, 0.1); padding: 0.2rem 0.8rem; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.3); }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        /* CONTACT CTA BUTTON */
+        .cta-container { text-align: center; margin-top: 3rem; }
+        .btn-email { display: inline-flex; justify-content: center; align-items: center; gap: 0.8rem; background: linear-gradient(135deg, var(--accent), #9333ea); color: white; padding: 1.2rem 3rem; border-radius: 12px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 25px var(--accent-glow); transition: transform 0.2s; }
+        .btn-email:hover { transform: translateY(-2px); }
 
-        ul {
-            list-style: none;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(10, 11, 14, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-main);
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-main);
-        }
-
-        .btn-cta-nav {
-            background-color: var(--accent);
-            color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-cta-nav:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Main Content */
-        main {
-            padding: 10rem 2rem 6rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .page-header h1 span {
-            color: var(--accent);
-        }
-
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Pricing Grid */
-        .pricing-section {
-            margin-bottom: 5rem;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-            display: inline-block;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2.5rem;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .price span {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--text-muted);
-        }
-
-        .pricing-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .pricing-features li::before {
-            content: "✓ ";
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Notice Box */
-        .notice-box {
-            background-color: var(--bg-card);
-            border-left: 4px solid var(--accent);
-            padding: 2rem;
-            border-radius: 0 8px 8px 0;
-            margin-top: 4rem;
-        }
-
-        .notice-box h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .notice-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 4rem 2rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-main);
-        }
-
-        .footer-col ul {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .footer-col a {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: var(--text-main);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
+        /* FOOTER */
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 6rem; }
+        footer p { margin-bottom: 0.5rem; }
+        .legal-info { font-size: 0.8rem; opacity: 0.7; }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">RIDERSKILL<span>.</span></a>
             <nav class="nav-links">
                 <a href="index.html">Accueil</a>
-                <a href="services.html">Prestations</a>
-                <a href="tarifs.html" class="active">Tarifs</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
+                <a href="tarifs.html" class="active">Tarifs & Prestations</a>
+                <a href="mailto:riderskill.pro@outlook.fr" class="btn-cta-nav">Contact Pro</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
         <div class="page-header">
-            <h1>Nos <span>Tarifs</span></h1>
-            <p>Une politique tarifaire claire, transparente et adaptée à la technicité de chaque prestation.</p>
+            <h1>Grille Tarifaire & Prestations</h1>
+            <div class="badge-expertise">⚡ Expertise 5070 Ti - Cosne-Cours-sur-Loire</div>
         </div>
 
-        <!-- Informatique & Matériel -->
-        <div class="pricing-section">
-            <h2 class="category-title">01. Informatique & Matériel</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div>
-                        <h3>Montage PC Sur Mesure</h3>
-                        <div class="price">79€ <span>TTC</span></div>
-                        <p>Assemblage rigoureux des composants de votre machine de jeu ou de travail.</p>
-                        <ul class="pricing-features">
-                            <li>Vérification de la compatibilité</li>
-                            <li>Montage physique soigné</li>
-                            <li>Cable management professionnel</li>
-                            <li>Tests de stabilité initiaux</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Réserver un montage</a>
-                </div>
+        <!-- Partenariats & Studios -->
+        <div class="studios-box">
+            <h3>Partenariats & Studios (Expertise 5070 Ti)</h3>
+            <div class="service-row">
+                <span>Session Live Découverte (1h-2h)</span>
+                <span>40 €</span>
+            </div>
+            <div class="service-row">
+                <span>Clip Technique (Focus FPS / Températures)</span>
+                <span>30 €</span>
+            </div>
+            <div class="service-row">
+                <span>Pack "Visibilité + Expertise" (Live + 1 Vidéo + Post)</span>
+                <span>60 €</span>
+            </div>
+        </div>
 
-                <div class="pricing-card">
-                    <div>
-                        <h3>Installation Windows & Drivers</h3>
-                        <div class="price">49€ <span>TTC</span></div>
-                        <p>Mise en place propre, rapide et sécurisée de votre système d'exploitation.</p>
-                        <ul class="pricing-features">
-                            <li>Installation propre de Windows</li>
-                            <li>Mise à jour complète des pilotes</li>
-                            <li>Paramétrage des options de vie privée</li>
-                            <li>Installation des utilitaires essentiels</li>
-                        </ul>
+        <!-- Grille Gamer, Particulier, Services -->
+        <div class="tarifs-grid">
+            <div class="tarif-card" style="border-color: var(--success);">
+                <div>
+                    <h3 style="border-left-color: var(--success); color: var(--success);">🎮 Gamer</h3>
+                    <div class="service-row">
+                        <span>Montage PC Gaming complet</span>
+                        <span>100 €</span>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Commander</a>
+                    <div class="service-row">
+                        <span>Remise en main propre</span>
+                        <span class="info-tag">Inclus (Cosne)</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="pricing-card">
-                    <div>
-                        <h3>Pack Montage + Installation OS</h3>
-                        <div class="price">119€ <span>TTC</span></div>
-                        <p>La solution clé en main : votre PC monté, testé, configuré et prêt à l'emploi.</p>
-                        <ul class="pricing-features">
-                            <li>Assemblage complet & Cable management</li>
-                            <li>Installation et activation de Windows</li>
-                            <li>Mise à jour des pilotes & BIOS</li>
-                            <li>Tests thermiques complets</li>
-                        </ul>
+            <div class="tarif-card" style="border-color: var(--info);">
+                <div>
+                    <h3 style="border-left-color: var(--info); color: var(--info);">🏠 Particulier</h3>
+                    <div class="service-row">
+                        <span>Montage PC Bureautique</span>
+                        <span>70 €</span>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Choisir ce pack</a>
+                    <div class="service-row">
+                        <span>Remise en main propre</span>
+                        <span class="info-tag">Inclus (Cosne)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarif-card" style="border-color: var(--accent);">
+                <div>
+                    <h3 style="border-left-color: var(--accent); color: var(--accent);">💼 Services & Ateliers</h3>
+                    <div class="service-row">
+                        <span>Installation / Réinstallation Windows</span>
+                        <span>45 € - 50 €</span>
+                    </div>
+                    <div class="service-row">
+                        <span>Assistance et Conseil (Tarif horaire)</span>
+                        <span>35 € - 45 € / h</span>
+                    </div>
+                    <div class="service-row">
+                        <span>Diagnostic de panne (Forfait)</span>
+                        <span>30 € - 45 €</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Streaming & Broadcast -->
-        <div class="pricing-section">
-            <h2 class="category-title">02. Streaming & Broadcast</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div>
-                        <h3>Configuration OBS Studio</h3>
-                        <div class="price">59€ <span>TTC</span></div>
-                        <p>Paramétrage complet pour un stream fluide, propre et sans saccades.</p>
-                        <ul class="pricing-features">
-                            <li>Optimisation de l'encodage et des débits</li>
-                            <li>Gestion du multi-piste audio</li>
-                            <li>Création des scènes principales</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Réserver</a>
-                </div>
-
-                <div class="pricing-card">
-                    <div>
-                        <h3>Pack Streaming Intégral</h3>
-                        <div class="price">99€ <span>TTC</span></div>
-                        <p>Configuration de pointe pour lancer vos lives sur Twitch, Kick et automatiser votre chat.</p>
-                        <ul class="pricing-features">
-                            <li>Paramétrage OBS Studio avancé</li>
-                            <li>Intégration multi-plateformes</li>
-                            <li>Configuration des bots (Botrix, etc.)</li>
-                            <li>Tests de diffusion en direct</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Réserver</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Création Numérique -->
-        <div class="pricing-section">
-            <h2 class="category-title">03. Création Numérique & Web</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div>
-                        <h3>Site Web Vitrine Professionnel</h3>
-                        <div class="price">Sur Devis <span>à partir de 350€</span></div>
-                        <p>Création d'un site web ultra-complet, responsive et optimisé SEO pour votre activité.</p>
-                        <ul class="pricing-features">
-                            <li>Design sur mesure & haut de gamme</li>
-                            <li>Intégration des documents juridiques</li>
-                            <li>Optimisation mobile et vitesse</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Notice -->
-        <div class="notice-box">
-            <h4>Transparence et Devis Personnalisés</h4>
-            <p>Les tarifs indiqués s'entendent toutes taxes comprises (TVA non applicable, art. 293 B du CGI pour le statut micro-entreprise). Pour toute demande spécifique ou projet sur mesure, un devis détaillé et gratuit sera établi avant validation de la commande.</p>
+        <div class="cta-container">
+            <a href="mailto:riderskill.pro@outlook.fr?subject=Demande%20de%20devis%20ou%20prestation" class="btn-email">
+                ✉️ COMMANDER / CONTACTER PAR E-MAIL
+            </a>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>RIDERSKILL PRODUCTION</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Micro-entreprise spécialisée dans les prestations informatiques, le streaming et la création numérique.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="services.html">Prestations</a></li>
-                    <li><a href="tarifs.html">Tarifs</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="contact.html">Contact & Devis</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Informations Légales</h4>
-                <ul>
-                    <li><a href="mentions-legales.html">Mentions légales</a></li>
-                    <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-                    <li><a href="cgv.html">Conditions Générales de Vente (CGV)</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RIDERSKILL PRODUCTION. Tous droits réservés.</p>
-            <p>SIRET : 504 712 043 00026</p>
-        </div>
+        <p><strong>RIDERSKILL PRODUCTION</strong> — Tous droits réservés.</p>
+        <p class="legal-info">SIRET : 504 712 043 00026 | Remise en main propre sur Cosne-Cours-sur-Loire</p>
     </footer>
-
 </body>
 </html>
