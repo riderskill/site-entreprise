@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Devis | RIDERSKILL PRODUCTION</title>
-    <meta name="description" content="Contactez RIDERSKILL PRODUCTION pour vos projets informatiques, montages PC, configurations streaming ou créations web. Devis rapide et personnalisé.">
+    <meta name="description" content="Contactez RIDERSKILL PRODUCTION pour vos demandes de devis, prestations informatiques et streaming.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +93,7 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover {
             color: var(--text-main);
         }
 
@@ -113,17 +113,17 @@
         /* Main Content */
         main {
             padding: 10rem 2rem 6rem;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
 
         .page-header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
@@ -134,111 +134,73 @@
 
         .page-header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.05rem;
         }
 
-        /* Contact Grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .contact-info {
+        .contact-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .contact-info h3 {
-            font-size: 1.5rem;
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent);
+            padding-left: 0.8rem;
+        }
+
+        .info-group {
             margin-bottom: 1.5rem;
         }
 
-        .info-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .info-item h4 {
-            font-size: 0.9rem;
-            color: var(--accent);
+        .info-group label {
+            display: block;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 700;
             margin-bottom: 0.3rem;
         }
 
-        .info-item p {
+        .info-group p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* Formulaire */
-        .contact-form {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .btn-email {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
             width: 100%;
-            padding: 0.8rem 1rem;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 150px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: var(--transition);
-            cursor: pointer;
-            text-align: center;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
             color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            margin-top: 2rem;
+            text-align: center;
         }
 
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
+        .btn-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
         }
 
         /* Footer */
@@ -246,7 +208,7 @@
             background-color: var(--bg-secondary);
             border-top: 1px solid var(--border);
             padding: 4rem 2rem 2rem;
-            margin-top: 4rem;
+            margin-top: 6rem;
         }
 
         .footer-container {
@@ -293,9 +255,6 @@
         }
 
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
             .nav-links {
                 display: none;
             }
@@ -313,7 +272,7 @@
                 <a href="services.html">Prestations</a>
                 <a href="tarifs.html">Tarifs</a>
                 <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html" class="btn-cta-nav active">Devis / Contact</a>
+                <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
             </nav>
         </div>
     </header>
@@ -322,62 +281,46 @@
     <main>
         <div class="page-header">
             <h1>Contact & <span>Devis</span></h1>
-            <p>Un projet, une question technique ou une demande de devis personnalisé ? Remplissez le formulaire ci-dessous.</p>
+            <p>Un projet, une question technique ou une demande de devis personnalisé ? Contactez-moi directement par e-mail.</p>
         </div>
 
         <div class="contact-grid">
-            <!-- Informations de contact -->
-            <div class="contact-info">
-                <h3>Coordonnées</h3>
-                <div class="info-item">
-                    <h4>Entreprise</h4>
-                    <p>RIDERSKILL PRODUCTION</p>
-                </div>
-                <div class="info-item">
-                    <h4>Statut & SIRET</h4>
-                    <p>Micro-entreprise<br>SIRET : 504 712 043 00026</p>
-                </div>
-                <div class="info-item">
-                    <h4>Zone d'intervention</h4>
-                    <p>Cosne-Cours-sur-Loire (France) & prestations à distance</p>
-                </div>
-                <div class="info-item">
-                    <h4>Réactivité</h4>
-                    <p>Réponse sous 24h à 48h ouvrées pour toute demande de devis.</p>
+            <!-- Coordonnées -->
+            <div class="contact-card">
+                <div>
+                    <h3>Informations & Entreprise</h3>
+                    <div class="info-group">
+                        <label>Entreprise</label>
+                        <p>RIDERSKILL PRODUCTION</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Statut & SIRET</label>
+                        <p>Micro-entreprise<br>SIRET : 504 712 043 00026</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Zone d'intervention</label>
+                        <p>Cosne-Cours-sur-Loire (France) & prestations à distance</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Réactivité</label>
+                        <p>Réponse sous 24h à 48h ouvrées pour toute demande.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Formulaire de contact -->
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nom / Prénom ou Entreprise</label>
-                        <input type="text" id="name" name="name" required placeholder="Ex: Jean Dupont">
+            <!-- Action E-mail Directe -->
+            <div class="contact-card" style="text-align: center; justify-content: center;">
+                <div>
+                    <h3>Envoyer une demande</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Cliquez sur le bouton ci-dessous pour ouvrir votre messagerie et m'envoyer directement votre demande de devis ou question.</p>
+                    <div class="info-group">
+                        <label>Adresse e-mail directe</label>
+                        <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 600;">riderskill.pro@outlook.fr</p>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Adresse E-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="exemple@domaine.fr">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service">Type de prestation</label>
-                        <select id="service" name="service">
-                            <option value="montage-pc">Montage PC Sur Mesure</option>
-                            <option value="optimisation-os">Installation / Optimisation Windows</option>
-                            <option value="streaming">Configuration Streaming / OBS</option>
-                            <option value="web">Création Site Internet / Web</option>
-                            <option value="autre">Autre demande spécifique</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Votre message / Description du projet</label>
-                        <textarea id="message" name="message" required placeholder="Décrivez votre besoin en détail (composants choisis, objectifs de stream, attentes particulières)..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Envoyer la demande de devis</button>
-                </form>
+                </div>
+                <a href="mailto:riderskill.pro@outlook.fr?subject=Demande%20de%20devis%20-%20RIDERSKILL%20PRODUCTION&body=Bonjour,%0A%0AJe%20souhaite%20obtenir%20des%20informations%20ou%20un%20devis%20pour%20:%0A-%20Nom%20/%20Prénom%20:%20%0A-%20Type%20de%20prestation%20:%20%0A-%20Description%20du%20projet%20:%20" class="btn-email">
+                    ✉️ COMMANDER / CONTACTER PAR E-MAIL
+                </a>
             </div>
         </div>
     </main>
