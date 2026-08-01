@@ -20,7 +20,6 @@
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.7; scroll-behavior: smooth; }
         a { text-decoration: none; color: inherit; }
         
-        /* HEADER & NAVIGATION */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10, 11, 14, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; }
         .nav-container { max-width: 1280px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.05em; color: var(--text-main); }
@@ -31,8 +30,16 @@
         .btn-cta-nav { background: linear-gradient(135deg, var(--accent), #9333ea); color: white !important; padding: 0.65rem 1.4rem; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 15px var(--accent-glow); transition: transform 0.2s; }
         .btn-cta-nav:hover { transform: translateY(-1px); }
 
-        /* HERO SECTION */
-        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 1.5rem 5rem; background: linear-gradient(rgba(10, 11, 14, 0.8), rgba(10, 11, 14, 0.95)), url('img/fond-gaming.jpg') no-repeat center center/cover; }
+        .hero { 
+            position: relative; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 8rem 1.5rem 5rem; 
+            background: linear-gradient(rgba(10, 11, 14, 0.82), rgba(10, 11, 14, 0.96)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover; 
+        }
         .hero-content { max-width: 900px; z-index: 2; }
         .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(168, 85, 247, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 0.4rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase; line-height: 1.1; letter-spacing: -0.02em; }
@@ -44,10 +51,21 @@
         .btn-secondary { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); padding: 1rem 2.2rem; border-radius: 10px; font-weight: 600; font-size: 1.05rem; transition: border-color 0.2s, background 0.2s; }
         .btn-secondary:hover { border-color: var(--accent); background: var(--bg-card); }
 
-        /* FEATURES / EXPERTISE SECTION */
+        /* SECTION LIVE & DIRECTS MONTAGE PC */
+        .live-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
+        .live-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .live-container h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
+        .live-container p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; }
+        .live-links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .live-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+        .live-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .live-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); }
+        .live-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .btn-stream { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; }
+
         .features-section { padding: 6rem 2rem; max-width: 1280px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
         .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
         
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
@@ -57,7 +75,6 @@
         .feature-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
-        /* HARDWARE SPECS SHOWCASE */
         .specs-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6rem 2rem; }
         .specs-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center; }
         .specs-text h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; }
@@ -69,12 +86,10 @@
         .specs-card h3 { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; }
         .specs-card .gpu-name { font-size: 2rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: 0.02em; }
 
-        /* ABOUT / BRAND PHILOSOPHY */
         .about-section { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
         .about-section h2 { font-size: 2.3rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; }
         .about-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; }
 
-        /* FOOTER */
         footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         footer p { margin-bottom: 0.5rem; }
         .legal-info { font-size: 0.8rem; opacity: 0.7; }
@@ -100,6 +115,26 @@
             <div class="hero-buttons">
                 <a href="tarifs.html" class="btn-primary">Découvrir nos tarifs</a>
                 <a href="mailto:riderskill.pro@outlook.fr" class="btn-secondary">Envoyer un e-mail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION DIRECTS & REPLAYS MONTAGE PC -->
+    <section class="live-section">
+        <div class="live-container">
+            <h2>🔴 Directs & Replays de Montage PC</h2>
+            <p>Retrouvez toutes nos sessions live d'assemblage hardware, d'optimisation et nos configurations en action.</p>
+            <div class="live-links-grid">
+                <div class="live-card">
+                    <h3>Directs & Streams</h3>
+                    <p>Suivez les lives de montage et de gaming en direct sur notre chaîne officielle.</p>
+                    <a href="https://kick.com" target="_blank" class="btn-stream">Accéder au Live</a>
+                </div>
+                <div class="live-card">
+                    <h3>Replays & Extraits</h3>
+                    <p>Visionnez les rediffusions des montages PC et nos sessions techniques.</p>
+                    <a href="tarifs.html" class="btn-stream" style="background: var(--success);">Voir les prestations</a>
+                </div>
             </div>
         </div>
     </section>
