@@ -1,189 +1,225 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIDERSKILL PRODUCTION | Expertise Hardware, Gaming & Streaming</title>
-    <style>
-        :root {
-            --bg-primary: #0a0b0e;
-            --bg-secondary: #13151b;
-            --bg-card: #181b22;
-            --accent: #a855f7;
-            --accent-glow: rgba(168, 85, 247, 0.25);
-            --success: #10b981;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border: #2d3748;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.7; scroll-behavior: smooth; }
-        a { text-decoration: none; color: inherit; }
-        
-        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10, 11, 14, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.05em; color: var(--text-main); }
-        .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-        .nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); transition: color 0.3s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
-        .btn-cta-nav { background: linear-gradient(135deg, var(--accent), #9333ea); color: white !important; padding: 0.65rem 1.4rem; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 15px var(--accent-glow); transition: transform 0.2s; }
-        .btn-cta-nav:hover { transform: translateY(-1px); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .hero { 
-            position: relative; 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            padding: 8rem 1.5rem 5rem; 
-            background: linear-gradient(rgba(10, 11, 14, 0.82), rgba(10, 11, 14, 0.96)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover; 
-        }
-        .hero-content { max-width: 900px; z-index: 2; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(168, 85, 247, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 0.4rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase; line-height: 1.1; letter-spacing: -0.02em; }
-        .hero h1 span { color: var(--accent); text-shadow: 0 0 30px var(--accent-glow); }
-        .hero p { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-muted); margin-bottom: 2.5rem; max-width: 750px; margin-left: auto; margin-right: auto; }
-        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent), #9333ea); color: white; padding: 1rem 2.2rem; border-radius: 10px; font-weight: 700; font-size: 1.05rem; box-shadow: 0 4px 20px var(--accent-glow); transition: transform 0.2s; }
-        .btn-primary:hover { transform: translateY(-2px); }
-        .btn-secondary { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); padding: 1rem 2.2rem; border-radius: 10px; font-weight: 600; font-size: 1.05rem; transition: border-color 0.2s, background 0.2s; }
-        .btn-secondary:hover { border-color: var(--accent); background: var(--bg-card); }
+<title>RIDERSKILL PRODUCTION | Créateur WebTV Gaming & Partenariats</title>
 
-        /* SECTION PARTENARIATS & STUDIOS (3 TARIFS EXACTS) */
-        .pricing-section { padding: 6rem 2rem; max-width: 1280px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
-        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .price-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s, border-color 0.3s; position: relative; }
-        .price-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .price-card.featured { border-color: var(--accent); box-shadow: 0 10px 30px var(--accent-glow); }
-        .badge-featured { position: absolute; top: -12px; right: 20px; background: var(--accent); color: white; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 20px; text-transform: uppercase; }
-        .price-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .price-card .price { font-size: 2.5rem; font-weight: 900; color: var(--accent); margin-bottom: 1.5rem; }
-        .price-card ul { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem; color: var(--text-muted); font-size: 0.95rem; }
-        .price-card ul li::before { content: "✓ "; color: var(--success); font-weight: bold; }
-        
-        /* SECTION DIRECTS & STREAMS */
-        .live-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
-        .live-container { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .live-container h2 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
-        .live-container p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; }
-        .live-links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .live-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
-        .live-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .live-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); }
-        .live-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .btn-stream { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; }
+<style>
 
-        .about-section { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
-        .about-section h2 { font-size: 2.3rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; }
-        .about-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; }
+:root {
+    --bg:#08090d;
+    --card:#11131a;
+    --card2:#171a22;
+    --purple:#9147ff;
+    --green:#10b981;
+    --text:#ffffff;
+    --muted:#a1a1aa;
+    --border:#27272f;
+}
 
-        footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
-        footer p { margin-bottom: 0.5rem; }
-        .legal-info { font-size: 0.8rem; opacity: 0.7; }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">RIDERSKILL<span>.</span></a>
-            <nav class="nav-links">
-                <a href="index.html" class="active">Accueil</a>
-                <a href="tarifs.html">Tarifs & Prestations</a>
-                <a href="mailto:riderskill.pro@outlook.fr" class="btn-cta-nav">Contact Pro</a>
-            </nav>
-        </div>
-    </header>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">⚡ Performance & Précision Professionnelle</div>
-            <h1>Expertise Hardware & <span>Streaming</span></h1>
-            <p>Ancien professionnel du montage PC et créateur de contenu indépendant basé à Cosne-Cours-sur-Loire. Matériel haut de gamme, montages sur-mesure ultra-propres et partenariats techniques spécialisés.</p>
-            <div class="hero-buttons">
-                <a href="tarifs.html" class="btn-primary">Découvrir nos tarifs</a>
-                <a href="mailto:riderskill.pro@outlook.fr" class="btn-secondary">Envoyer un e-mail</a>
-            </div>
-        </div>
-    </section>
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
 
-    <!-- SECTION DIRECTS & STREAMS DE MONTAGE PC -->
-    <section class="live-section">
-        <div class="live-container">
-            <h2>🔴 Directs & Replays de Montage PC</h2>
-            <p>Suivez nos sessions live d'assemblage hardware, d'optimisation et retrouvez tous nos liens de diffusion.</p>
-            <div class="live-links-grid">
-                <div class="live-card">
-                    <h3>Directs & Streams</h3>
-                    <p>Rejoignez le salon pour suivre le montage des configurations en direct.</p>
-                    <a href="https://kick.com" target="_blank" class="btn-stream">Accéder au Live</a>
-                </div>
-                <div class="live-card">
-                    <h3>Rediffusions & Clips</h3>
-                    <p>Consultez les extraits techniques et les analyses matériel.</p>
-                    <a href="tarifs.html" class="btn-stream" style="background: var(--success);">Voir les prestations</a>
-                </div>
-            </div>
-        </div>
-    </section>
+a{
+    text-decoration:none;
+    color:white;
+}
 
-    <!-- SECTION PARTENARIATS & STUDIOS (LES 3 TARIFS EXACTS) -->
-    <section class="pricing-section">
-        <div class="section-title">
-            <h2>Partenariats & Studios</h2>
-            <p>Expertise 5070 Ti et prestations dédiées aux créateurs et marques.</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Session Live Découverte</h3>
-                <div class="price">40 €</div>
-                <ul>
-                    <li>Durée : 1h à 2h de direct</li>
-                    <li>Présentation et test en live</li>
-                    <li>Interaction directe avec la communauté</li>
-                </ul>
-                <a href="mailto:riderskill.pro@outlook.fr" class="btn-stream" style="text-align: center;">Réserver</a>
-            </div>
-            
-            <div class="price-card">
-                <h3>Clip Technique</h3>
-                <div class="price">30 €</div>
-                <ul>
-                    <li>Focus spécifique FPS & Températures</li>
-                    <li>Mise en avant des performances hardware</li>
-                    <li>Optimisation et retours détaillés</li>
-                </ul>
-                <a href="mailto:riderskill.pro@outlook.fr" class="btn-stream" style="text-align: center;">Réserver</a>
-            </div>
 
-            <div class="price-card featured">
-                <div class="badge-featured">Populaire</div>
-                <h3>Pack "Visibilité + Expertise"</h3>
-                <div class="price">60 €</div>
-                <ul>
-                    <li>1 Live dédié complet</li>
-                    <li>1 Vidéo dédiée publiée</li>
-                    <li>1 Post promotionnel inclus</li>
-                </ul>
-                <a href="mailto:riderskill.pro@outlook.fr" class="btn-primary" style="text-align: center;">Choisir ce pack</a>
-            </div>
-        </div>
-    </section>
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(8,9,13,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
 
-    <section class="about-section">
-        <h2>Un engagement local et qualitatif</h2>
-        <p>Basé à Cosne-Cours-sur-Loire, RIDERSKILL met un point d'honneur à offrir un service de proximité ultra-qualitatif, transparent et sur-mesure. Chaque intervention fait l'objet d'un soin particulier pour garantir une fiabilité totale de votre outil de travail ou de jeu.</p>
-        <a href="tarifs.html" class="btn-primary" style="display: inline-block;">Consulter la grille tarifaire complète</a>
-    </section>
 
-    <footer>
-        <p><strong>RIDERSKILL PRODUCTION</strong> — Tous droits réservés.</p>
-        <p class="legal-info">SIRET : 504 712 043 00026 | Remise en main propre sur Cosne-Cours-sur-Loire</p>
-    </footer>
-</body>
-</html>
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.logo{
+    font-size:26px;
+    font-weight:900;
+}
+
+.logo span{
+    color:var(--purple);
+}
+
+
+.menu{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+
+.menu a{
+    color:var(--muted);
+    font-weight:bold;
+}
+
+
+.menu a:hover{
+    color:white;
+}
+
+
+.button{
+    background:var(--purple);
+    padding:12px 22px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+
+
+.hero{
+
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    padding:120px 20px 60px;
+
+    background:
+    linear-gradient(
+    rgba(8,9,13,.85),
+    rgba(8,9,13,.98)
+    ),
+    url("https://images.unsplash.com/photo-1593305841991-05c297ba4575")
+    center/cover;
+
+}
+
+
+.hero-content{
+    max-width:900px;
+}
+
+
+.badge{
+
+display:inline-block;
+padding:8px 18px;
+border:1px solid var(--purple);
+border-radius:30px;
+color:var(--purple);
+font-weight:bold;
+margin-bottom:25px;
+
+}
+
+
+h1{
+
+font-size:clamp(40px,6vw,70px);
+line-height:1.1;
+margin-bottom:25px;
+
+}
+
+
+h1 span{
+
+color:var(--purple);
+
+}
+
+
+.hero p{
+
+font-size:20px;
+color:var(--muted);
+margin-bottom:35px;
+
+}
+
+
+.buttons{
+
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+
+.btn{
+
+padding:15px 30px;
+border-radius:10px;
+font-weight:bold;
+
+}
+
+
+.btn-primary{
+
+background:var(--purple);
+
+}
+
+
+.btn-secondary{
+
+border:1px solid var(--border);
+background:var(--card);
+
+}
+
+
+section{
+
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+
+}
+
+
+.title{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+
+.title h2{
+
+font-size:40px;
+
+}
+
+
+.title p{
+
+color:var(--muted);
+
+}
