@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestations & Services | RIDERSKILL PRODUCTION</title>
+    <meta name="description" content="Découvrez nos prestations informatiques, montage PC, configuration streaming (OBS, Twitch, Kick) et création numérique pour professionnels et particuliers.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles CSS Intégrés -->
+    <style>
+        :root {
+            --bg-primary: #0a0b0e;
+            --bg-secondary: #13151b;
+            --bg-card: #1a1d26;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #2d3748;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 11, 14, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .btn-cta-nav {
+            background-color: var(--accent);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-cta-nav:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Main Content */
+        main {
+            padding: 10rem 2rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 span {
+            color: var(--accent);
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Category Section */
+        .service-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            display: inline-block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .service-features li::before {
+            content: "• ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">RIDERSKILL<span>.</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="services.html" class="active">Prestations</a>
+                <a href="tarifs.html">Tarifs</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html" class="btn-cta-nav">Devis / Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Nos <span>Prestations</span></h1>
+            <p>Des services techniques rigoureux et sur mesure, pensés pour les particuliers exigeants, les professionnels et les créateurs de contenu.</p>
+        </div>
+
+        <!-- Catégorie Informatique -->
+        <div class="service-category">
+            <h2 class="category-title">01. Informatique & Matériel</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <h3>Montage PC Sur Mesure</h3>
+                        <p>Assemblage professionnel de composants haute performance pour le gaming, le streaming ou la création de contenu.</p>
+                        <ul class="service-features">
+                            <li>Étude de compatibilité des composants</li>
+                            <li>Montage minutieux et rigoureux</li>
+                            <li>Cable management de haute précision</li>
+                            <li>Tests de stress et validation thermique</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <h3>Optimisation & Maintenance</h3>
+                        <p>Amélioration des performances globales de votre système, nettoyage physique et mise à jour des configurations matérielles.</p>
+                        <ul class="service-features">
+                            <li>Dépoussiérage et changement de pâte thermique</li>
+                            <li>Optimisation BIOS (overclocking / undervolting)</li>
+                            <li>Diagnostic de pannes matérielles</li>
+                            <li>Remplacement de composants défectueux</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <h3>Installation & Configuration OS</h3>
+                        <p>Mise en place propre de systèmes d'exploitation Windows, sans bloatware superflu, avec pilotes et sécurisation à jour.</p>
+                        <ul class="service-features">
+                            <li>Installation propre de Windows</li>
+                            <li>Mise à jour complète des pilotes (drivers)</li>
+                            <li>Paramétrage de la confidentialité et sécurité</li>
+                            <li>Installation des logiciels essentiels</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégorie Streaming -->
+        <div class="service-category">
+            <h2 class="category-title">02. Streaming & Broadcast</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <h3>Configuration OBS Studio</h3>
+                        <p>Paramétrage avancé de vos scènes, sources, flux audio et encodage pour un rendu fluide et professionnel sur vos lives.</p>
+                        <ul class="service-features">
+                            <li>Optimisation des débits et résolutions</li>
+                            <li>Gestion multipiste audio (Voix, Jeu, Musique)</li>
+                            <li>Création de scènes dynamiques et propres</li>
+                            <li>Tests de diffusion en conditions réelles</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <h3>Intégration Multi-Plateforme</h3>
+                        <p>Synchronisation et optimisation de votre chaîne pour diffuser simultanément et proprement sur Twitch, Kick ou autres plateformes.</p>
+                        <ul class="service-features">
+                            <li>Paramétrage des clés de stream</li>
+                            <li>Gestion des outils de diffusion simultanée</li>
+                            <li>Optimisation de la latence</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <h3>Automatisations & Bots (Chat)</h3>
+                        <p>Mise en place d'automatisations de chat (Botrix, Mix It Up, WizeBot) pour animer et modérer efficacement votre communauté.</p>
+                        <ul class="service-features">
+                            <li>Configuration de commandes personnalisées</li>
+                            <li>Automatisation de messages promotionnels</li>
+                            <li>Mise en place de alertes (abonnements, subs)</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégorie Création Numérique -->
+        <div class="service-category">
+            <h2 class="category-title">03. Création Numérique & Web</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <h3>Création de Sites Internet</h3>
+                        <p>Développement de sites web vitrines haut de gamme, rapides, responsive et optimisés pour le référencement (SEO).</p>
+                        <ul class="service-features">
+                            <li>Design moderne et épuré</li>
+                            <li>Optimisation mobile et vitesse de chargement</li>
+                            <li>Structure rigoureuse conforme au droit</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <h3>Identité & Overlays Stream</h3>
+                        <p>Conception d'éléments graphiques sur mesure et d'overlays professionnels pour harmoniser l'identité de votre chaîne.</p>
+                        <ul class="service-features">
+                            <li>Overlays, panels et écrans d'attente</li>
+                            <li>Harmonisation de la charte graphique</li>
+                            <li>Rendu visuel haut de gamme</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>RIDERSKILL PRODUCTION</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Micro-entreprise spécialisée dans les prestations informatiques, le streaming et la création numérique.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="services.html">Prestations</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact & Devis</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informations Légales</h4>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    <li><a href="cgv.html">Conditions Générales de Vente (CGV)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RIDERSKILL PRODUCTION. Tous droits réservés.</p>
+            <p>SIRET : 504 712 043 00026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
