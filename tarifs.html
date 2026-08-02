@@ -38,220 +38,126 @@ text-decoration:none;
 color:white;
 }
 
-
 header{
-
 position:fixed;
 top:0;
 width:100%;
 background:rgba(8,9,13,.95);
 border-bottom:1px solid var(--border);
 z-index:100;
-
 }
 
-
 .nav{
-
 max-width:1200px;
 margin:auto;
 padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 }
-
 
 .logo{
-
 font-size:28px;
 font-weight:900;
-
 }
-
 
 .logo span{
-
 color:var(--purple);
-
 }
 
-
 nav a{
-
 margin-left:20px;
 color:var(--muted);
 font-weight:bold;
-
 }
 
-
 .btn{
-
 background:var(--purple);
 padding:12px 25px;
 border-radius:8px;
 display:inline-block;
-font-weight:bold;
-
 }
 
 
 .hero{
-
 padding:150px 20px 60px;
 text-align:center;
-
 }
-
 
 .hero h1{
-
 font-size:50px;
-margin-bottom:20px;
-
 }
-
 
 .hero span{
-
 color:var(--purple);
-
 }
-
 
 .hero p{
-
-max-width:800px;
-margin:auto;
-font-size:20px;
 color:var(--muted);
-
+font-size:20px;
+margin-top:20px;
 }
-
 
 
 .container{
-
 max-width:1200px;
 margin:auto;
 padding:40px 20px 80px;
-
 }
 
 
 .grid{
-
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
-
 }
 
 
-
 .card{
-
 background:var(--card);
 border:1px solid var(--border);
 border-radius:15px;
-padding:35px;
-transition:.3s;
-
+padding:30px;
 }
 
 
 .card:hover{
-
 border-color:var(--purple);
-transform:translateY(-5px);
-
 }
 
 
-
 .card h2{
-
 color:var(--purple);
-margin-bottom:15px;
-
+margin-bottom:20px;
 }
 
 
 .price{
-
-font-size:42px;
-font-weight:900;
-margin:20px 0;
-
+font-size:24px;
+font-weight:bold;
+margin:8px 0 15px;
 }
 
 
-
-.card p{
-
-color:var(--muted);
-margin-bottom:20px;
-
+.item{
+border-bottom:1px solid var(--border);
+padding:12px 0;
 }
 
 
-.card ul{
-
-list-style:none;
-margin-bottom:30px;
-
-}
-
-
-.card li{
-
-margin-bottom:10px;
-
-}
-
-
-.card li::before{
-
-content:"✓ ";
+.item span{
+float:right;
 color:var(--green);
 font-weight:bold;
-
 }
-
-
-.featured{
-
-border-color:var(--purple);
-
-}
-
-
-
-.badge{
-
-background:var(--purple);
-padding:5px 15px;
-border-radius:20px;
-display:inline-block;
-font-size:13px;
-font-weight:bold;
-margin-bottom:15px;
-
-}
-
 
 
 footer{
-
 border-top:1px solid var(--border);
 padding:40px;
 text-align:center;
 color:var(--muted);
-
 }
-
 
 </style>
 
@@ -261,16 +167,12 @@ color:var(--muted);
 <body>
 
 
-
 <header>
 
 <div class="nav">
 
-
 <div class="logo">
-
 RIDERSKILL<span>.</span>
-
 </div>
 
 
@@ -284,7 +186,6 @@ RIDERSKILL<span>.</span>
 
 </nav>
 
-
 </div>
 
 </header>
@@ -294,24 +195,15 @@ RIDERSKILL<span>.</span>
 
 <section class="hero">
 
-
 <h1>
-
 Nos <span>Tarifs</span>
-
 </h1>
 
-
 <p>
-
-Des prestations adaptées à votre projet : montage PC, conseil hardware et optimisation.
-
+Des prestations adaptées au gaming, aux particuliers et aux professionnels.
 </p>
 
-
 </section>
-
-
 
 
 
@@ -322,112 +214,32 @@ Des prestations adaptées à votre projet : montage PC, conseil hardware et opti
 
 
 
-
-
 <div class="card">
 
-
 <h2>
-
-Conseil Achat
-
+📹 Partenariats & Studios
 </h2>
 
 
-<div class="price">
-
-30 €
-
+<div class="item">
+Session Live Découverte (1h-2h)
+<span>40 €</span>
 </div>
 
 
-<p>
-
-Analyse de votre besoin et accompagnement avant achat.
-
-</p>
-
-
-<ul>
-
-<li>Étude de votre utilisation</li>
-
-<li>Choix des composants</li>
-
-<li>Conseils compatibilité</li>
-
-<li>Configuration équilibrée</li>
-
-</ul>
-
-
-<a href="contact.html" class="btn">
-
-Demander un devis
-
-</a>
-
-
+<div class="item">
+Clip Technique (FPS / Temp)
+<span>30 €</span>
 </div>
 
 
-
-
-
-
-<div class="card featured">
-
-
-<div class="badge">
-
-Le plus demandé
-
+<div class="item">
+Pack "Visibilité + Expertise"
+<span>60 €</span>
 </div>
 
 
-<h2>
-
-Montage PC
-
-</h2>
-
-
-<div class="price">
-
-à partir de 80 €
-
 </div>
-
-
-<p>
-
-Assemblage complet de votre configuration.
-
-</p>
-
-
-<ul>
-
-<li>Montage des composants</li>
-
-<li>Câblage propre</li>
-
-<li>Installation système</li>
-
-<li>Tests de fonctionnement</li>
-
-</ul>
-
-
-<a href="contact.html" class="btn">
-
-Demander un devis
-
-</a>
-
-
-</div>
-
 
 
 
@@ -435,50 +247,30 @@ Demander un devis
 
 <div class="card">
 
-
 <h2>
-
-Upgrade PC
-
+🎮 Gamme Gaming
 </h2>
 
 
-<div class="price">
-
-à partir de 50 €
-
+<div class="item">
+Montage PC Gaming
+<span>85 €</span>
 </div>
 
 
-<p>
-
-Amélioration de votre machine existante.
-
-</p>
-
-
-<ul>
-
-<li>Remplacement composants</li>
-
-<li>Ajout stockage</li>
-
-<li>Optimisation performances</li>
-
-<li>Réglages système</li>
-
-</ul>
+<div class="item">
+Installation Windows
+<span>30 €</span>
+</div>
 
 
-<a href="contact.html" class="btn">
-
-Demander un devis
-
-</a>
+<div class="item">
+Conseil / Aide achat
+<span>20 € / h</span>
+</div>
 
 
 </div>
-
 
 
 
@@ -486,51 +278,61 @@ Demander un devis
 
 <div class="card">
 
-
 <h2>
-
-Setup Streaming
-
+🏠 Particulier
 </h2>
 
 
-<div class="price">
-
-Sur devis
-
+<div class="item">
+Montage Bureautique
+<span>55 €</span>
 </div>
 
 
-<p>
-
-Optimisation d'une configuration dédiée au streaming.
-
-</p>
-
-
-<ul>
-
-<li>Réglages OBS</li>
-
-<li>Conseils matériel</li>
-
-<li>Optimisation qualité vidéo</li>
-
-<li>Configuration adaptée</li>
-
-</ul>
-
-
-<a href="contact.html" class="btn">
-
-Demander un devis
-
-</a>
+<div class="item">
+Conseil / Aide achat
+<span>10 € / h</span>
+</div>
 
 
 </div>
 
 
+
+
+
+<div class="card">
+
+<h2>
+💼 Gamme Pro
+</h2>
+
+
+<div class="item">
+Montage Stabilité
+<span>85 €</span>
+</div>
+
+
+<div class="item">
+Pack Full Pro
+<span>115 €</span>
+</div>
+
+
+<div class="item">
+Installation OS Pro
+<span>35 €</span>
+</div>
+
+
+<div class="item">
+Conseil Expert
+<span>35 € / h</span>
+</div>
+
+
+</div>
 
 
 
@@ -541,6 +343,22 @@ Demander un devis
 
 
 
+<footer>
+
+<strong>
+RIDERSKILL PRODUCTION
+</strong>
+
+<br>
+
+Montage PC • Conseil Hardware • Optimisation
+
+</footer>
+
+
+
+</body>
+</html>
 
 <footer>
 
