@@ -28,6 +28,7 @@
             border-bottom: 3px solid var(--accent);
             padding: 25px;
             text-align: center;
+            width: 100%;
         }
 
         header h1 {
@@ -55,12 +56,11 @@
             color: var(--accent);
         }
 
-        /* Conteneur élargi à presque 100% pour occuper tout l'écran de gauche à droite */
+        /* OCCUPATION TOTALE DE L'ÉCRAN DE GAUCHE À DROITE */
         .container {
-            width: 96%;
-            max-width: 1800px;
-            margin: 40px auto;
-            padding: 0 10px;
+            width: 98%;
+            margin: 30px auto;
+            padding: 0 15px;
         }
 
         .section-title {
@@ -79,11 +79,12 @@
             font-size: 18px;
         }
 
-        /* 4 GROSSES COLONNES QUI PRENNENT TOUTE LA LARGEUR */
+        /* 4 COLONNES PLEIN ÉCRAN */
         .grid-20 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
+            width: 100%;
         }
 
         .product-box {
@@ -100,10 +101,9 @@
             border-color: var(--accent);
         }
 
-        /* GRANDE PHOTO POUR CHAQUE ARTICLE */
         .product-img {
             width: 100%;
-            height: 240px;
+            height: 260px;
             background-color: #222;
             display: flex;
             align-items: center;
@@ -168,26 +168,56 @@
             text-transform: uppercase;
         }
 
+        /* SECTION INFOS EN BAS (Contact & Retours) */
+        .info-section {
+            background-color: var(--bg-card);
+            border: 3px solid var(--accent);
+            border-radius: 12px;
+            margin-top: 60px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-box h3 {
+            color: var(--accent);
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-box a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
         footer {
             text-align: center;
             padding: 40px;
             background-color: var(--bg-card);
             color: var(--text-muted);
-            margin-top: 80px;
+            margin-top: 40px;
             border-top: 3px solid var(--border);
             font-size: 16px;
+            width: 100%;
         }
 
-        /* Ajustement automatique pour les tablettes ou écrans plus petits */
         @media (max-width: 1200px) {
-            .grid-20 {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .grid-20 { grid-template-columns: repeat(2, 1fr); }
+            .info-section { grid-template-columns: 1fr; }
         }
         @media (max-width: 700px) {
-            .grid-20 {
-                grid-template-columns: 1fr;
-            }
+            .grid-20 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -415,7 +445,7 @@
                     <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
                     <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <span class="product-status">Disponible</span>
+                        <span class="product-status">PDF / Info</div>
                     </div>
                 </div>
             </div>
@@ -470,6 +500,18 @@
                         <span class="product-status">Disponible</span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- SECTION INFORMATIONS BAS DE PAGE (Contact & Retours) -->
+        <div class="info-section">
+            <div class="info-box">
+                <h3>Plus de pièces disponibles ?</h3>
+                <p>Vous recherchez un composant ou un matériel spécifique qui n'est pas affiché dans la grille ci-dessus ? N'hésitez pas à me contacter directement par e-mail pour connaître les arrivages en cours et les pièces disponibles sur demande.</p>
+            </div>
+            <div class="info-box">
+                <h3>Modalités de retour</h3>
+                <p>Tout matériel testé et vendu bénéficie des conditions de la micro-entreprise. En cas de problème ou de question sur un produit acheté, contactez-nous rapidement pour voir les modalités d'échange ou de retour applicables.</p>
             </div>
         </div>
     </div>
