@@ -56,11 +56,12 @@
             color: var(--accent);
         }
 
+        /* 100% DE LA LARGEUR DE L'ÉCRAN SANS BRIDAGE */
         .container {
-            width: 98%;
-            max-width: 1800px;
-            margin: 40px auto;
-            padding: 0 15px;
+            width: 98vw;
+            margin: 30px auto;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -79,18 +80,18 @@
             font-size: 18px;
         }
 
-        /* 5 COLONNES STRICTES QUI PRENNENT TOUTE LA LARGEUR */
+        /* 5 COLONNES PLEIN ÉCRAN */
         .grid-30 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 15px;
             width: 100%;
         }
 
         .product-box {
             background-color: var(--bg-card);
             border: 2px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -101,10 +102,10 @@
             border-color: var(--accent);
         }
 
-        /* EMPLACEMENT PHOTO 16/9 PROPRE POUR 5 COLONNES */
+        /* EMPLACEMENT PHOTO 16/9 PROPRE */
         .product-img {
             width: 100%;
-            height: 160px;
+            aspect-ratio: 16 / 9;
             background-color: #222;
             display: flex;
             align-items: center;
@@ -175,11 +176,13 @@
             background-color: var(--bg-card);
             border: 3px solid var(--accent);
             border-radius: 12px;
-            margin-top: 60px;
+            margin-top: 50px;
             padding: 35px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .info-box h3 {
@@ -235,11 +238,11 @@
     <div class="container">
         <div class="section-title">
             <h2>Espace Achat & Revente Matériel</h2>
-            <p>Matériel testé, configuré et prêt à l'emploi. Descriptions complètes et photos réelles (30 emplacements).</p>
+            <p>Matériel testé, configuré et prêt à l'emploi. 30 emplacements disponibles.</p>
         </div>
 
         <div class="grid-30">
-            <!-- 30 emplacements répartis sur 5 colonnes -->
+            <!-- 30 emplacements sur 5 colonnes plein écran -->
             
             <!-- Article 1 -->
             <div class="product-box">
