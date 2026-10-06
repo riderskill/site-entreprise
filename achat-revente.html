@@ -20,7 +20,7 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         header {
@@ -56,7 +56,6 @@
             color: var(--accent);
         }
 
-        /* OCCUPATION TOTALE DE L'ÉCRAN DE GAUCHE À DROITE */
         .container {
             width: 98%;
             margin: 30px auto;
@@ -79,7 +78,7 @@
             font-size: 18px;
         }
 
-        /* 4 COLONNES PLEIN ÉCRAN */
+        /* 4 COLONNES STRICTES ET ÉQUILIBRÉES */
         .grid-20 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -89,29 +88,31 @@
 
         .product-box {
             background-color: var(--bg-card);
-            border: 3px solid var(--border);
+            border: 2px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
         .product-box:hover {
             border-color: var(--accent);
         }
 
+        /* CONTENEUR PHOTO EN 16/9 PROPRE DANS LA CARTE */
         .product-img {
             width: 100%;
-            height: 260px;
+            height: 180px;
             background-color: #222;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            border-bottom: 3px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            overflow: hidden;
         }
 
         .product-img img {
@@ -121,25 +122,25 @@
         }
 
         .product-content {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-name {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--accent);
         }
 
         .product-description {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-grow: 1;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .product-bottom {
@@ -147,28 +148,28 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            padding-top: 15px;
-            border-top: 2px solid var(--border);
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
         }
 
         .product-price {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             color: var(--accent);
         }
 
         .product-status {
-            background-color: rgba(0, 255, 204, 0.2);
+            background-color: rgba(0, 255, 204, 0.15);
             color: var(--accent);
-            border: 2px solid var(--accent);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 14px;
+            border: 1px solid var(--accent);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        /* SECTION INFOS EN BAS (Contact & Retours) */
+        /* SECTION INFOS BAS DE PAGE */
         .info-section {
             background-color: var(--bg-card);
             border: 3px solid var(--accent);
@@ -193,12 +194,6 @@
             font-size: 17px;
             line-height: 1.6;
             margin: 0;
-        }
-
-        .info-box a {
-            color: var(--accent);
-            text-decoration: underline;
-            font-weight: bold;
         }
 
         footer {
@@ -240,7 +235,7 @@
         </div>
 
         <div class="grid-20">
-            <!-- 20 emplacements en 4 colonnes plein écran -->
+            <!-- 20 emplacements en 4 colonnes strictes -->
             
             <!-- Article 1 -->
             <div class="product-box">
@@ -445,7 +440,7 @@
                     <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
                     <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <span class="product-status">PDF / Info</div>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
@@ -503,7 +498,7 @@
             </div>
         </div>
 
-        <!-- SECTION INFORMATIONS BAS DE PAGE (Contact & Retours) -->
+        <!-- SECTION INFORMATIONS BAS DE PAGE -->
         <div class="info-section">
             <div class="info-box">
                 <h3>Plus de pièces disponibles ?</h3>
