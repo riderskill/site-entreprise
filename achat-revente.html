@@ -58,7 +58,8 @@
 
         .container {
             width: 98%;
-            margin: 30px auto;
+            max-width: 1800px;
+            margin: 40px auto;
             padding: 0 15px;
         }
 
@@ -78,11 +79,11 @@
             font-size: 18px;
         }
 
-        /* 4 COLONNES STRICTES ET ÉQUILIBRÉES */
-        .grid-20 {
+        /* 5 COLONNES STRICTES QUI PRENNENT TOUTE LA LARGEUR */
+        .grid-30 {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
             width: 100%;
         }
 
@@ -100,16 +101,16 @@
             border-color: var(--accent);
         }
 
-        /* CONTENEUR PHOTO EN 16/9 PROPRE DANS LA CARTE */
+        /* EMPLACEMENT PHOTO 16/9 PROPRE POUR 5 COLONNES */
         .product-img {
             width: 100%;
-            height: 180px;
+            height: 160px;
             background-color: #222;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             border-bottom: 2px solid var(--border);
             overflow: hidden;
@@ -122,21 +123,21 @@
         }
 
         .product-content {
-            padding: 18px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--accent);
         }
 
         .product-description {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 15px;
             flex-grow: 1;
@@ -148,12 +149,12 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            padding-top: 12px;
+            padding-top: 10px;
             border-top: 1px solid var(--border);
         }
 
         .product-price {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: var(--accent);
         }
@@ -162,9 +163,9 @@
             background-color: rgba(0, 255, 204, 0.15);
             color: var(--accent);
             border: 1px solid var(--accent);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 13px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -207,12 +208,15 @@
             width: 100%;
         }
 
-        @media (max-width: 1200px) {
-            .grid-20 { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 1400px) {
+            .grid-30 { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .grid-30 { grid-template-columns: repeat(2, 1fr); }
             .info-section { grid-template-columns: 1fr; }
         }
-        @media (max-width: 700px) {
-            .grid-20 { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            .grid-30 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -231,11 +235,11 @@
     <div class="container">
         <div class="section-title">
             <h2>Espace Achat & Revente Matériel</h2>
-            <p>Matériel testé, configuré et prêt à l'emploi. Descriptions complètes et photos réelles.</p>
+            <p>Matériel testé, configuré et prêt à l'emploi. Descriptions complètes et photos réelles (30 emplacements).</p>
         </div>
 
-        <div class="grid-20">
-            <!-- 20 emplacements en 4 colonnes strictes -->
+        <div class="grid-30">
+            <!-- 30 emplacements répartis sur 5 colonnes -->
             
             <!-- Article 1 -->
             <div class="product-box">
@@ -489,6 +493,136 @@
                 <div class="product-img">Photo Article 20</div>
                 <div class="product-content">
                     <div class="product-name">Article 20</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 21 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 21</div>
+                <div class="product-content">
+                    <div class="product-name">Article 21</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 22 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 22</div>
+                <div class="product-content">
+                    <div class="product-name">Article 22</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 23 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 23</div>
+                <div class="product-content">
+                    <div class="product-name">Article 23</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 24 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 24</div>
+                <div class="product-content">
+                    <div class="product-name">Article 24</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 25 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 25</div>
+                <div class="product-content">
+                    <div class="product-name">Article 25</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 26 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 26</div>
+                <div class="product-content">
+                    <div class="product-name">Article 26</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 27 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 27</div>
+                <div class="product-content">
+                    <div class="product-name">Article 27</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 28 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 28</div>
+                <div class="product-content">
+                    <div class="product-name">Article 28</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 29 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 29</div>
+                <div class="product-content">
+                    <div class="product-name">Article 29</div>
+                    <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
+                    <div class="product-bottom">
+                        <span class="product-price">00,00 €</span>
+                        <span class="product-status">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 30 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 30</div>
+                <div class="product-content">
+                    <div class="product-name">Article 30</div>
                     <div class="product-description">Description complète du matériel, état général, caractéristiques techniques et garanties...</div>
                     <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
