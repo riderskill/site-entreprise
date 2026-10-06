@@ -3,460 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RiderSkill - Achat & Revente Matériel</title>
+    <title>RiderSkill - Achat & Revente</title>
     <style>
-        /* Reprise de la charte graphique globale (à adapter selon les couleurs exactes de ton site) */
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-color: #00ffcc;
-            --text-color: #e0e0e0;
-            --text-muted: #aaaaaa;
-            --border-color: #333333;
+            --bg-main: #0f0f0f;
+            --bg-card: #181818;
+            --accent: #00ffcc;
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+            --border: #333333;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
+            font-size: 18px; /* Texte général plus grand */
         }
 
         header {
-            background-color: var(--card-bg);
-            border-bottom: 2px solid var(--accent-color);
-            padding: 20px;
+            background-color: var(--bg-card);
+            border-bottom: 3px solid var(--accent);
+            padding: 25px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            color: var(--accent-color);
-            font-size: 26px;
+            color: var(--accent);
+            font-size: 32px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         nav a {
-            color: var(--text-color);
+            color: var(--text-main);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 18px;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: var(--accent-color);
+        nav a:hover, nav a.active {
+            color: var(--accent);
         }
 
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1400px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
-        .page-title {
+        .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        .page-title h2 {
-            font-size: 28px;
-            color: #ffffff;
-            margin-bottom: 10px;
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--text-main);
+            margin-bottom: 15px;
         }
 
-        .page-title p {
+        .section-title p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 18px;
         }
 
-        /* Grille des 20 emplacements produits */
-        .products-grid {
+        /* Grille avec des cartes beaucoup plus grandes et larges */
+        .grid-20 {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+        .product-box {
+            background-color: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: border-color 0.2s;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
+        .product-box:hover {
+            border-color: var(--accent);
         }
 
-        .product-image-slot {
+        /* Emplacement photo beaucoup plus haut et grand */
+        .product-img {
             width: 100%;
-            height: 180px;
-            background-color: #2a2a2a;
+            height: 240px;
+            background-color: #222;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 14px;
-            border-bottom: 1px solid var(--border-color);
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border);
         }
 
-        .product-image-slot img {
+        .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .product-info {
-            padding: 15px;
+        .product-content {
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-title {
-            font-size: 18px;
+        .product-name {
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 8px;
-            color: #ffffff;
+            margin-bottom: 12px;
+            color: var(--text-main);
         }
 
-        .product-desc {
-            font-size: 14px;
+        .product-description {
+            font-size: 16px;
             color: var(--text-muted);
-            margin-bottom: 15px;
-            flex-grow: l;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.5;
         }
 
-        .product-footer {
+        .product-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
         }
 
         .product-price {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
-        .btn-details {
-            background-color: var(--accent-color);
-            color: #121212;
-            border: none;
+        .product-status {
+            background-color: rgba(0, 255, 204, 0.15);
+            color: var(--accent);
+            border: 1px solid var(--accent);
             padding: 6px 12px;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 13px;
+            text-transform: uppercase;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: var(--card-bg);
+            padding: 40px;
+            background-color: var(--bg-card);
             color: var(--text-muted);
-            margin-top: 50px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+            border-top: 2px solid var(--border);
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>RiderSkill - Micro-Entreprise</h1>
+        <h1>RiderSkill</h1>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="services.html">Services & Tarifs</a>
-            <a href="achat-revente.html" style="color: var(--accent-color);">Achat / Revente</a>
+            <a href="services.html">Services</a>
+            <a href="achat-revente.html" class="active">Achat & Revente</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="page-title">
+        <div class="section-title">
             <h2>Espace Achat & Revente Matériel</h2>
-            <p>Retrouvez ici notre sélection de composants et configurations testés, garantis et prêts à l'emploi.</p>
+            <p>Retrouvez tout notre matériel testé, configuré et prêt à l'emploi.</p>
         </div>
 
-        <div class="products-grid">
-            <!-- Emplacement Produit 1 à 20 -->
-            <!-- Tu peux dupliquer ou modifier directement ces blocs pour tes 20 articles -->
-            
-            <!-- Produit 1 -->
-            <div class="product-card">
-                <div class="product-image-slot">
-                    <span>Emplacement Photo 1</span>
-                    <!-- Remplace par <img src="images/produit1.jpg" alt="Produit 1"> quand tu as la photo -->
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Article 01</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+        <div class="grid-20">
+            <!-- Emplacement 1 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 01</div>
+                <div class="product-content">
+                    <div class="product-name">Article 01</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 2 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 2</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 02</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 2 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 02</div>
+                <div class="product-content">
+                    <div class="product-name">Article 02</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 3 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 3</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 03</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 3 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 03</div>
+                <div class="product-content">
+                    <div class="product-name">Article 03</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 4 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 4</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 04</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 4 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 04</div>
+                <div class="product-content">
+                    <div class="product-name">Article 04</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 5 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 5</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 05</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 5 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 05</div>
+                <div class="product-content">
+                    <div class="product-name">Article 05</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 6 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 6</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 06</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 6 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 06</div>
+                <div class="product-content">
+                    <div class="product-name">Article 06</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 7 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 7</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 07</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 7 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 07</div>
+                <div class="product-content">
+                    <div class="product-name">Article 07</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 8 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 8</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 08</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 8 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 08</div>
+                <div class="product-content">
+                    <div class="product-name">Article 08</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 9 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 9</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 09</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 9 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 09</div>
+                <div class="product-content">
+                    <div class="product-name">Article 09</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 10 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 10</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 10</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 10 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 10</div>
+                <div class="product-content">
+                    <div class="product-name">Article 10</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 11 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 11</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 11</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 11 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 11</div>
+                <div class="product-content">
+                    <div class="product-name">Article 11</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 12 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 12</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 12</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 12 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 12</div>
+                <div class="product-content">
+                    <div class="product-name">Article 12</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 13 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 13</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 13</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 13 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 13</div>
+                <div class="product-content">
+                    <div class="product-name">Article 13</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 14 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 14</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 14</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 14 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 14</div>
+                <div class="product-content">
+                    <div class="product-name">Article 14</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 15 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 15</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 15</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 15 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 15</div>
+                <div class="product-content">
+                    <div class="product-name">Article 15</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 16 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 16</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 16</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 16 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 16</div>
+                <div class="product-content">
+                    <div class="product-name">Article 16</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 17 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 17</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 17</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 17 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 17</div>
+                <div class="product-content">
+                    <div class="product-name">Article 17</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 18 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 18</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 18</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 18 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 18</div>
+                <div class="product-content">
+                    <div class="product-name">Article 18</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 19 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 19</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 19</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 19 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 19</div>
+                <div class="product-content">
+                    <div class="product-name">Article 19</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Produit 20 -->
-            <div class="product-card">
-                <div class="product-image-slot"><span>Emplacement Photo 20</span></div>
-                <div class="product-info">
-                    <div class="product-title">Article 20</div>
-                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
-                    <div class="product-footer">
+            <!-- Emplacement 20 -->
+            <div class="product-box">
+                <div class="product-img">Photo Article 20</div>
+                <div class="product-content">
+                    <div class="product-name">Article 20</div>
+                    <div class="product-description">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-bottom">
                         <span class="product-price">00,00 €</span>
-                        <a href="#contact" class="btn-details">Dispo</a>
+                        <span class="product-status">Disponible</span>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
