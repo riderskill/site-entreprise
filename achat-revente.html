@@ -1,1 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiderSkill - Achat & Revente Matériel</title>
+    <style>
+        /* Reprise de la charte graphique globale (à adapter selon les couleurs exactes de ton site) */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #00ffcc;
+            --text-color: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h2 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Grille des 20 emplacements produits */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .product-image-slot {
+            width: 100%;
+            height: 180px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-grow: l;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .btn-details {
+            background-color: var(--accent-color);
+            color: #121212;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>RiderSkill - Micro-Entreprise</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services & Tarifs</a>
+            <a href="achat-revente.html" style="color: var(--accent-color);">Achat / Revente</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h2>Espace Achat & Revente Matériel</h2>
+            <p>Retrouvez ici notre sélection de composants et configurations testés, garantis et prêts à l'emploi.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Emplacement Produit 1 à 20 -->
+            <!-- Tu peux dupliquer ou modifier directement ces blocs pour tes 20 articles -->
+            
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image-slot">
+                    <span>Emplacement Photo 1</span>
+                    <!-- Remplace par <img src="images/produit1.jpg" alt="Produit 1"> quand tu as la photo -->
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Article 01</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 2</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 02</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 3</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 03</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 4</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 04</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 5</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 05</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 6</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 06</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 7 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 7</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 07</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 8 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 8</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 08</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 9 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 9</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 09</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 10 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 10</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 10</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 11 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 11</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 11</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 12 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 12</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 12</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 13 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 13</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 13</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 14 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 14</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 14</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 15 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 15</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 15</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 16 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 16</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 16</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 17 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 17</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 17</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 18 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 18</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 18</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 19 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 19</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 19</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 20 -->
+            <div class="product-card">
+                <div class="product-image-slot"><span>Emplacement Photo 20</span></div>
+                <div class="product-info">
+                    <div class="product-title">Article 20</div>
+                    <div class="product-desc">Description complète du matériel, état, caractéristiques techniques...</div>
+                    <div class="product-footer">
+                        <span class="product-price">00,00 €</span>
+                        <a href="#contact" class="btn-details">Dispo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 RiderSkill - Tous droits réservés. SIRET : 504 712 043 00026</p>
+    </footer>
+
+</body>
+</html>
