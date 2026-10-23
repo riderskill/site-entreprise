@@ -156,56 +156,13 @@
             color: var(--danger-color);
             border-color: var(--danger-color);
         }
-        .admin-box {
-            display: none;
-            background: #161b22;
-            border: 2px solid var(--accent-color);
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-        }
-        .admin-box.unlocked {
-            display: block;
-        }
-        .admin-footer {
+        footer {
             text-align: center;
             margin-top: 50px;
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
-        }
-        .btn-admin-login {
-            background: transparent;
-            border: 1px solid var(--border-color);
             color: #8b949e;
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .btn-admin-login:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-        .btn-save {
-            background-color: var(--accent-color);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .form-group {
-            margin-bottom: 10px;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            background: #0d1117;
-            border: 1px solid var(--border-color);
-            color: #fff;
-            border-radius: 4px;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -226,53 +183,16 @@
             <p>Matériel testé, configuré et prêt à l'emploi. 20 emplacements disponibles.</p>
         </div>
 
-        <div class="admin-box" id="adminPanel">
-            <h3 style="color: var(--accent-color); margin-bottom: 10px;">🔒 Espace Administration RiderSkill</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-                <div class="form-group">
-                    <label>Emplacement :</label>
-                    <select id="admSelect" onchange="loadAdmData()"></select>
-                </div>
-                <div class="form-group">
-                    <label>Titre :</label>
-                    <input type="text" id="admTitle">
-                </div>
-                <div class="form-group">
-                    <label>Prix (€) :</label>
-                    <input type="text" id="admPrice">
-                </div>
-                <div class="form-group">
-                    <label>Nom de l'image :</label>
-                    <input type="text" id="admImg">
-                </div>
-                <div class="form-group">
-                    <label>Statut :</label>
-                    <select id="admStatus">
-                        <option value="DISPONIBLE">DISPONIBLE</option>
-                        <option value="RÉSERVÉ">RÉSERVÉ</option>
-                        <option value="VENDU">VENDU</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Description :</label>
-                <textarea id="admDesc" rows="2"></textarea>
-            </div>
-            <button class="btn-save" onclick="saveAdmData()">Mettre à jour cet article</button>
-        </div>
-
         <div class="grid" id="articlesGrid"></div>
     </div>
 
-    <div class="admin-footer">
-        <button class="btn-admin-login" onclick="loginAdmin()">🔒 Accès Administration</button>
-    </div>
+    <footer>
+        <p>&copy; RIDERSKILL - Tous droits réservés.</p>
+    </footer>
 
     <script>
-        // Mot de passe administrateur modifié
-        const ADMIN_PASS = "STUPEFACTION";
-
-        let items = JSON.parse(localStorage.getItem('riderskill_data')) || Array.from({ length: 20 }, (_, i) => ({
+        // Liste des 20 articles affichés sur le site
+        const items = Array.from({ length: 20 }, (_, i) => ({
             id: i,
             title: `Article ${String(i + 1).padStart(2, '0')}`,
             price: "00,00 €",
@@ -304,49 +224,6 @@
                     </div>
                 `;
             });
-
-            const sel = document.getElementById('admSelect');
-            if (sel) {
-                sel.innerHTML = items.map((item, i) =>
-                    `<option value="${i}">Article ${String(i + 1).padStart(2, '0')} (${item.title})</option>`
-                ).join('');
-            }
-        }
-
-        function loginAdmin() {
-            const pwd = prompt("Entrez le mot de passe administrateur :");
-            if (pwd === ADMIN_PASS) {
-                document.getElementById('adminPanel').classList.add('unlocked');
-                loadAdmData();
-                alert("Accès autorisé !");
-            } else if (pwd !== null) {
-                alert("Mot de passe incorrect !");
-            }
-        }
-
-        function loadAdmData() {
-            const idx = document.getElementById('admSelect').value;
-            const item = items[idx];
-            document.getElementById('admTitle').value = item.title;
-            document.getElementById('admPrice').value = item.price;
-            document.getElementById('admImg').value = item.img;
-            document.getElementById('admStatus').value = item.status;
-            document.getElementById('admDesc').value = item.desc;
-        }
-
-        function saveAdmData() {
-            const idx = document.getElementById('admSelect').value;
-            items[idx] = {
-                id: parseInt(idx),
-                title: document.getElementById('admTitle').value,
-                price: document.getElementById('admPrice').value,
-                img: document.getElementById('admImg').value,
-                status: document.getElementById('admStatus').value,
-                desc: document.getElementById('admDesc').value
-            };
-            localStorage.setItem('riderskill_data', JSON.stringify(items));
-            render();
-            alert("Article mis à jour !");
         }
 
         render();
