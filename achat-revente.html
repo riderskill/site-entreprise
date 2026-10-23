@@ -89,41 +89,9 @@
             font-size: 0.95rem;
         }
 
-        .admin-toggle-bar {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(0, 230, 153, 0.1);
-        }
-
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 20px;
         }
 
@@ -168,7 +136,7 @@
 
         .card-title {
             color: var(--accent-color);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -211,44 +179,64 @@
             border-color: var(--danger-color);
         }
 
-        /* Panneau Édition */
-        .edit-panel {
+        /* Zone Admin masquée par défaut */
+        .admin-box {
             display: none;
             background: #161b22;
-            border: 1px solid var(--accent-color);
+            border: 2px solid var(--accent-color);
             padding: 20px;
             border-radius: 6px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .edit-panel.active {
+        .admin-box.unlocked {
             display: block;
+        }
+
+        .admin-footer {
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .btn-admin-login {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: #8b949e;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .btn-admin-login:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-save {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-            color: var(--text-bright);
-        }
-
-        .form-group input, .form-group textarea, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 8px;
             background: #0d1117;
             border: 1px solid var(--border-color);
-            color: var(--text-color);
+            color: #fff;
             border-radius: 4px;
-        }
-
-        .edit-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
         }
     </style>
 </head>
@@ -257,10 +245,10 @@
     <header>
         <div class="header-title">RIDERSKILL - MICRO-ENTREPRISE</div>
         <nav>
-            <a href="#">Accueil</a>
-            <a href="#">Services & Tarifs</a>
-            <a href="#" class="active">Achat / Revente</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services & Tarifs</a>
+            <a href="achat-revente.html" class="active">Achat / Revente</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -270,35 +258,29 @@
             <p>Matériel testé, configuré et prêt à l'emploi. 20 emplacements disponibles.</p>
         </div>
 
-        <div class="admin-toggle-bar">
-            <button class="btn btn-outline" id="toggleEditBtn" onclick="toggleEditMode()">🛠️ Mode Édition / Modifier les articles</button>
-        </div>
-
-        <!-- Zone de modification rapide (s'affiche uniquement en cliquant sur le bouton Édition) -->
-        <div class="edit-panel" id="editPanel">
-            <h3 style="color: var(--accent-color); margin-bottom: 15px;">Modifier un emplacement d'article</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <!-- Panneau d'administration sécurisé -->
+        <div class="admin-box" id="adminPanel">
+            <h3 style="color: var(--accent-color); margin-bottom: 10px;">🔒 Espace Administration RiderSkill</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
                 <div class="form-group">
-                    <label>Sélectionner l'emplacement :</label>
-                    <select id="selectArticle" onchange="loadArticleData()">
-                        <!-- Rempli en JS -->
-                    </select>
+                    <label>Emplacement :</label>
+                    <select id="admSelect" onchange="loadAdmData()"></select>
                 </div>
                 <div class="form-group">
-                    <label>Titre de l'article :</label>
-                    <input type="text" id="editTitle" placeholder="Ex: RTX 3070 8Go OC">
+                    <label>Titre :</label>
+                    <input type="text" id="admTitle">
                 </div>
                 <div class="form-group">
                     <label>Prix (€) :</label>
-                    <input type="text" id="editPrice" placeholder="Ex: 280,00 €">
+                    <input type="text" id="admPrice">
                 </div>
                 <div class="form-group">
-                    <label>Nom ou Lien de la photo :</label>
-                    <input type="text" id="editImg" placeholder="Ex: photo1.jpg ou https://...">
+                    <label>Nom de l'image (ex: rtx3070.jpg) :</label>
+                    <input type="text" id="admImg">
                 </div>
                 <div class="form-group">
                     <label>Statut :</label>
-                    <select id="editStatus">
+                    <select id="admStatus">
                         <option value="DISPONIBLE">DISPONIBLE</option>
                         <option value="RÉSERVÉ">RÉSERVÉ</option>
                         <option value="VENDU">VENDU</option>
@@ -307,52 +289,44 @@
             </div>
             <div class="form-group">
                 <label>Description :</label>
-                <textarea id="editDesc" rows="2" placeholder="Description du matériel..."></textarea>
+                <textarea id="admDesc" rows="2"></textarea>
             </div>
-            <div class="edit-actions">
-                <button class="btn" onclick="saveArticleData()">Appliquer sur cet emplacement</button>
-                <button class="btn btn-outline" onclick="exportHTML()">📥 Exporter la page modifiée (Code HTML)</button>
-            </div>
+            <button class="btn-save" onclick="saveAdmData()">Mettre à jour cet article</button>
         </div>
 
-        <!-- Grille des 20 emplacements -->
-        <div class="grid" id="articlesGrid">
-            <!-- Rempli dynamiquement -->
-        </div>
+        <!-- Grille Vitrine Publique -->
+        <div class="grid" id="articlesGrid"></div>
+    </div>
+
+    <div class="admin-footer">
+        <button class="btn-admin-login" onclick="loginAdmin()">🔒 Accès Administration</button>
     </div>
 
     <script>
-        // Données par défaut pour les 20 emplacements
-        let items = JSON.parse(localStorage.getItem('riderskill_articles')) || Array.from({ length: 20 }, (_, i) => {
-            const num = String(i + 1).padStart(2, '0');
-            return {
-                id: i,
-                title: `Article ${num}`,
-                price: "00,00 €",
-                desc: "Description complète du matériel. État général, caractéristiques techniques et garantie.",
-                status: "DISPONIBLE",
-                img: ""
-            };
-        });
+        // Mot de passe administrateur sécurisé
+        const ADMIN_PASS = "Brayankillyan2613..";
 
-        function renderGrid() {
+        let items = JSON.parse(localStorage.getItem('riderskill_data')) || Array.from({ length: 20 }, (_, i) => ({
+            id: i,
+            title: `Article ${String(i + 1).padStart(2, '0')}`,
+            price: "00,00 €",
+            desc: "Description complète du matériel. État général, caractéristiques techniques et garantie.",
+            status: "DISPONIBLE",
+            img: ""
+        }));
+
+        function render() {
             const grid = document.getElementById('articlesGrid');
             grid.innerHTML = '';
-
-            items.forEach((item) => {
-                const num = String(item.id + 1).padStart(2, '0');
+            items.forEach((item, i) => {
+                const num = String(i + 1).padStart(2, '0');
                 const isVendu = item.status === 'VENDU';
                 const badgeClass = isVendu ? 'badge badge-vendu' : 'badge';
+                const img = item.img ? `<img src="${item.img}" alt="${item.title}">` : `Photo Article ${num}`;
                 
-                const imgHTML = item.img 
-                    ? `<img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.parentElement.innerHTML='Photo Article ${num}';">`
-                    : `Photo Article ${num}`;
-
                 grid.innerHTML += `
                     <div class="card">
-                        <div class="card-img-container">
-                            ${imgHTML}
-                        </div>
+                        <div class="card-img-container">${img}</div>
                         <div class="card-body">
                             <div class="card-title">${item.title}</div>
                             <div class="card-desc">${item.desc}</div>
@@ -365,65 +339,49 @@
                 `;
             });
 
-            // Mettre à jour la liste déroulante du panneau d'édition
-            const select = document.getElementById('selectArticle');
-            if (select) {
-                select.innerHTML = items.map((item, i) => `<option value="${i}">Article ${String(i + 1).padStart(2, '0')} - ${item.title}</option>`).join('');
+            const sel = document.getElementById('admSelect');
+            if(sel) {
+                sel.innerHTML = items.map((item, i) => `<option value="${i}">Article ${String(i + 1).padStart(2, '0')} (${item.title})</option>`).join('');
             }
         }
 
-        function toggleEditMode() {
-            const panel = document.getElementById('editPanel');
-            panel.classList.toggle('active');
-            if (panel.classList.contains('active')) {
-                loadArticleData();
+        function loginAdmin() {
+            const pwd = prompt("Entrez le mot de passe administrateur :");
+            if(pwd === ADMIN_PASS) {
+                document.getElementById('adminPanel').classList.add('unlocked');
+                loadAdmData();
+                alert("Accès autorisé !");
+            } else if(pwd !== null) {
+                alert("Mot de passe incorrect !");
             }
         }
 
-        function loadArticleData() {
-            const idx = document.getElementById('selectArticle').value;
+        function loadAdmData() {
+            const idx = document.getElementById('admSelect').value;
             const item = items[idx];
-            document.getElementById('editTitle').value = item.title;
-            document.getElementById('editPrice').value = item.price;
-            document.getElementById('editImg').value = item.img;
-            document.getElementById('editStatus').value = item.status;
-            document.getElementById('editDesc').value = item.desc;
+            document.getElementById('admTitle').value = item.title;
+            document.getElementById('admPrice').value = item.price;
+            document.getElementById('admImg').value = item.img;
+            document.getElementById('admStatus').value = item.status;
+            document.getElementById('admDesc').value = item.desc;
         }
 
-        function saveArticleData() {
-            const idx = document.getElementById('selectArticle').value;
+        function saveAdmData() {
+            const idx = document.getElementById('admSelect').value;
             items[idx] = {
                 id: parseInt(idx),
-                title: document.getElementById('editTitle').value || `Article ${String(parseInt(idx) + 1).padStart(2, '0')}`,
-                price: document.getElementById('editPrice').value || "00,00 €",
-                img: document.getElementById('editImg').value,
-                status: document.getElementById('editStatus').value,
-                desc: document.getElementById('editDesc').value || "Description du matériel..."
+                title: document.getElementById('admTitle').value,
+                price: document.getElementById('admPrice').value,
+                img: document.getElementById('admImg').value,
+                status: document.getElementById('admStatus').value,
+                desc: document.getElementById('admDesc').value
             };
-            
-            localStorage.setItem('riderskill_articles', JSON.stringify(items));
-            renderGrid();
-            alert("L'emplacement " + (parseInt(idx) + 1) + " a été mis à jour !");
+            localStorage.setItem('riderskill_data', JSON.stringify(items));
+            render();
+            alert("Article mis à jour !");
         }
 
-        function exportHTML() {
-            // Sauvegarde l'état actuel directement dans le code source HTML
-            let cloneDoc = document.documentElement.cloneNode(true);
-            
-            // Masque le panneau d'édition pour le rendu final si besoin
-            let scriptTag = cloneDoc.querySelector('script');
-            
-            let htmlContent = "<!DOCTYPE html>\n" + cloneDoc.outerHTML;
-            
-            let blob = new Blob([htmlContent], { type: 'text/html' });
-            let a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'achat-revente.html';
-            a.click();
-        }
-
-        // Initialisation au chargement
-        renderGrid();
+        render();
     </script>
 </body>
 </html>
