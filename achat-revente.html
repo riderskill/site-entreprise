@@ -3,293 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RiderSkill - Achat & Revente</title>
+    <title>RIDERSKILL - Achat & Revente Matériel</title>
     <style>
         :root {
-            --bg-main: #0f0f0f;
-            --bg-card: #181818;
-            --accent: #00ffcc;
-            --text-main: #ffffff;
-            --text-muted: #dddddd;
-            --border: #444444;
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-color: #00e699;
+            --accent-hover: #00b377;
+            --text-color: #c9d1d9;
+            --text-bright: #ffffff;
+            --danger-color: #f85149;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
         }
 
         header {
-            background-color: var(--bg-card);
-            border-bottom: 3px solid var(--accent);
-            padding: 25px;
+            background-color: #090d12;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
             text-align: center;
-            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            margin: 0;
-            color: var(--accent);
-            font-size: 32px;
+        .header-title {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         nav {
-            margin-top: 15px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         nav a {
-            color: var(--text-main);
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            font-size: 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
         nav a:hover, nav a.active {
-            color: var(--accent);
+            color: var(--accent-color);
         }
 
         .container {
-            width: 96vw;
+            max-width: 1400px;
             margin: 30px auto;
-            padding: 0 10px;
-            box-sizing: border-box;
+            padding: 0 20px;
         }
 
-        .section-title {
+        .page-intro {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .section-title h2 {
-            font-size: 38px;
-            color: var(--text-main);
-            margin-bottom: 10px;
+        .page-intro h1 {
+            color: var(--text-bright);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
 
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 18px;
+        .page-intro p {
+            color: #8b949e;
+            font-size: 0.95rem;
         }
 
-        /* 5 COLONNES PLEIN ÉCRAN AVEC UN BON ESPACEMENT */
-        .grid-30 {
+        .admin-toggle-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 230, 153, 0.1);
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            width: 100%;
         }
 
-        .product-box {
-            background-color: var(--bg-card);
-            border: 2px solid var(--border);
-            border-radius: 8px;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .product-box:hover {
-            border-color: var(--accent);
+        .card:hover {
+            border-color: var(--accent-color);
         }
 
-        /* FORMAT 16/9 PROPRE POUR LES PHOTOS */
-        .product-img {
+        .card-img-container {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: #222;
+            height: 180px;
+            background-color: #21262d;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            font-size: 15px;
-            font-weight: bold;
-            border-bottom: 2px solid var(--border);
+            color: #8b949e;
+            position: relative;
             overflow: hidden;
         }
 
-        .product-img img {
+        .card-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .product-content {
+        .card-body {
             padding: 15px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
+        .card-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
             margin-bottom: 8px;
-            color: var(--accent);
+            font-weight: 600;
         }
 
-        .product-description {
-            font-size: 14px;
-            color: var(--text-muted);
+        .card-desc {
+            font-size: 0.85rem;
+            color: #8b949e;
             margin-bottom: 15px;
             flex-grow: 1;
-            line-height: 1.4;
         }
 
-        .product-bottom {
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: auto;
             padding-top: 10px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--border-color);
         }
 
-        .product-price {
-            font-size: 18px;
+        .price {
+            color: var(--text-bright);
             font-weight: bold;
-            color: var(--accent);
+            font-size: 1.1rem;
         }
 
-        .product-status {
-            background-color: rgba(0, 255, 204, 0.15);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 4px 8px;
+        .badge {
+            background-color: rgba(0, 230, 153, 0.15);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-vendu {
+            background-color: rgba(248, 81, 73, 0.15);
+            color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
+
+        /* Panneau Édition */
+        .edit-panel {
+            display: none;
+            background: #161b22;
+            border: 1px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .edit-panel.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            color: var(--text-bright);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            background: #0d1117;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
         }
 
-        /* SECTION INFOS BAS DE PAGE */
-        .info-section {
-            background-color: var(--bg-card);
-            border: 3px solid var(--accent);
-            border-radius: 12px;
-            margin-top: 50px;
-            padding: 35px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .info-box h3 {
-            color: var(--accent);
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .info-box p {
-            color: var(--text-muted);
-            font-size: 17px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: var(--bg-card);
-            color: var(--text-muted);
-            margin-top: 40px;
-            border-top: 3px solid var(--border);
-            font-size: 16px;
-            width: 100%;
-        }
-
-        @media (max-width: 1400px) {
-            .grid-30 { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 900px) {
-            .grid-30 { grid-template-columns: repeat(2, 1fr); }
-            .info-section { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 600px) {
-            .grid-30 { grid-template-columns: 1fr; }
+        .edit-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>RiderSkill - Micro-Entreprise</h1>
+        <div class="header-title">RIDERSKILL - MICRO-ENTREPRISE</div>
         <nav>
-            <a href="index.html">Accueil</a>
-            <a href="services.html">Services & Tarifs</a>
-            <a href="achat-revente.html" class="active">Achat / Revente</a>
-            <a href="contact.html">Contact</a>
+            <a href="#">Accueil</a>
+            <a href="#">Services & Tarifs</a>
+            <a href="#" class="active">Achat / Revente</a>
+            <a href="#">Contact</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="section-title">
-            <h2>Espace Achat & Revente Matériel</h2>
-            <p>Matériel testé, configuré et prêt à l'emploi. 30 emplacements disponibles.</p>
+        <div class="page-intro">
+            <h1>Espace Achat & Revente Matériel</h1>
+            <p>Matériel testé, configuré et prêt à l'emploi. 20 emplacements disponibles.</p>
         </div>
 
-        <!-- LA GRILLE QUI SE REMPLIT TOUTE SEULE -->
-        <div class="grid-30" id="products-grid"></div>
+        <div class="admin-toggle-bar">
+            <button class="btn btn-outline" id="toggleEditBtn" onclick="toggleEditMode()">🛠️ Mode Édition / Modifier les articles</button>
+        </div>
 
-        <!-- SECTION INFORMATIONS BAS DE PAGE -->
-        <div class="info-section">
-            <div class="info-box">
-                <h3>Plus de pièces disponibles ?</h3>
-                <p>Vous recherchez un composant ou un matériel spécifique qui n'est pas affiché dans la grille ci-dessus ? N'hésitez pas à me contacter directement par e-mail pour connaître les arrivages en cours et les pièces disponibles sur demande.</p>
+        <!-- Zone de modification rapide (s'affiche uniquement en cliquant sur le bouton Édition) -->
+        <div class="edit-panel" id="editPanel">
+            <h3 style="color: var(--accent-color); margin-bottom: 15px;">Modifier un emplacement d'article</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div class="form-group">
+                    <label>Sélectionner l'emplacement :</label>
+                    <select id="selectArticle" onchange="loadArticleData()">
+                        <!-- Rempli en JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Titre de l'article :</label>
+                    <input type="text" id="editTitle" placeholder="Ex: RTX 3070 8Go OC">
+                </div>
+                <div class="form-group">
+                    <label>Prix (€) :</label>
+                    <input type="text" id="editPrice" placeholder="Ex: 280,00 €">
+                </div>
+                <div class="form-group">
+                    <label>Nom ou Lien de la photo :</label>
+                    <input type="text" id="editImg" placeholder="Ex: photo1.jpg ou https://...">
+                </div>
+                <div class="form-group">
+                    <label>Statut :</label>
+                    <select id="editStatus">
+                        <option value="DISPONIBLE">DISPONIBLE</option>
+                        <option value="RÉSERVÉ">RÉSERVÉ</option>
+                        <option value="VENDU">VENDU</option>
+                    </select>
+                </div>
             </div>
-            <div class="info-box">
-                <h3>Modalités de retour</h3>
-                <p>Tout matériel testé et vendu bénéficie des conditions de la micro-entreprise. En cas de problème ou de question sur un produit acheté, contactez-nous rapidement pour voir les modalités d'échange ou de retour applicables.</p>
+            <div class="form-group">
+                <label>Description :</label>
+                <textarea id="editDesc" rows="2" placeholder="Description du matériel..."></textarea>
             </div>
+            <div class="edit-actions">
+                <button class="btn" onclick="saveArticleData()">Appliquer sur cet emplacement</button>
+                <button class="btn btn-outline" onclick="exportHTML()">📥 Exporter la page modifiée (Code HTML)</button>
+            </div>
+        </div>
+
+        <!-- Grille des 20 emplacements -->
+        <div class="grid" id="articlesGrid">
+            <!-- Rempli dynamiquement -->
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 RiderSkill - Tous droits réservés. SIRET : 504 712 043 00026</p>
-    </footer>
-
-    <!-- SCRIPT DE CHARGEMENT AUTOMATIQUE DES 30 ARTICLES -->
     <script>
-        fetch('produits.json')
-            .then(response => response.json())
-            .then(products => {
-                const grid = document.getElementById('products-grid');
-                grid.innerHTML = '';
-                
-                products.forEach(p => {
-                    const imgContent = p.image 
-                        ? `<img src="${p.image}" alt="${p.name}">` 
-                        : `Photo ${p.name}`;
+        // Données par défaut pour les 20 emplacements
+        let items = JSON.parse(localStorage.getItem('riderskill_articles')) || Array.from({ length: 20 }, (_, i) => {
+            const num = String(i + 1).padStart(2, '0');
+            return {
+                id: i,
+                title: `Article ${num}`,
+                price: "00,00 €",
+                desc: "Description complète du matériel. État général, caractéristiques techniques et garantie.",
+                status: "DISPONIBLE",
+                img: ""
+            };
+        });
 
-                    const box = document.createElement('div');
-                    box.className = 'product-box';
-                    box.innerHTML = `
-                        <div class="product-img">${imgContent}</div>
-                        <div class="product-content">
-                            <div class="product-name">${p.name}</div>
-                            <div class="product-description">${p.description}</div>
-                            <div class="product-bottom">
-                                <span class="product-price">${p.price}</span>
-                                <span class="product-status">${p.status}</span>
+        function renderGrid() {
+            const grid = document.getElementById('articlesGrid');
+            grid.innerHTML = '';
+
+            items.forEach((item) => {
+                const num = String(item.id + 1).padStart(2, '0');
+                const isVendu = item.status === 'VENDU';
+                const badgeClass = isVendu ? 'badge badge-vendu' : 'badge';
+                
+                const imgHTML = item.img 
+                    ? `<img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.parentElement.innerHTML='Photo Article ${num}';">`
+                    : `Photo Article ${num}`;
+
+                grid.innerHTML += `
+                    <div class="card">
+                        <div class="card-img-container">
+                            ${imgHTML}
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">${item.title}</div>
+                            <div class="card-desc">${item.desc}</div>
+                            <div class="card-footer">
+                                <div class="price">${item.price}</div>
+                                <div class="${badgeClass}">${item.status}</div>
                             </div>
                         </div>
-                    `;
-                    grid.appendChild(box);
-                });
-            })
-            .catch(error => console.error('Erreur de chargement du catalogue:', error));
+                    </div>
+                `;
+            });
+
+            // Mettre à jour la liste déroulante du panneau d'édition
+            const select = document.getElementById('selectArticle');
+            if (select) {
+                select.innerHTML = items.map((item, i) => `<option value="${i}">Article ${String(i + 1).padStart(2, '0')} - ${item.title}</option>`).join('');
+            }
+        }
+
+        function toggleEditMode() {
+            const panel = document.getElementById('editPanel');
+            panel.classList.toggle('active');
+            if (panel.classList.contains('active')) {
+                loadArticleData();
+            }
+        }
+
+        function loadArticleData() {
+            const idx = document.getElementById('selectArticle').value;
+            const item = items[idx];
+            document.getElementById('editTitle').value = item.title;
+            document.getElementById('editPrice').value = item.price;
+            document.getElementById('editImg').value = item.img;
+            document.getElementById('editStatus').value = item.status;
+            document.getElementById('editDesc').value = item.desc;
+        }
+
+        function saveArticleData() {
+            const idx = document.getElementById('selectArticle').value;
+            items[idx] = {
+                id: parseInt(idx),
+                title: document.getElementById('editTitle').value || `Article ${String(parseInt(idx) + 1).padStart(2, '0')}`,
+                price: document.getElementById('editPrice').value || "00,00 €",
+                img: document.getElementById('editImg').value,
+                status: document.getElementById('editStatus').value,
+                desc: document.getElementById('editDesc').value || "Description du matériel..."
+            };
+            
+            localStorage.setItem('riderskill_articles', JSON.stringify(items));
+            renderGrid();
+            alert("L'emplacement " + (parseInt(idx) + 1) + " a été mis à jour !");
+        }
+
+        function exportHTML() {
+            // Sauvegarde l'état actuel directement dans le code source HTML
+            let cloneDoc = document.documentElement.cloneNode(true);
+            
+            // Masque le panneau d'édition pour le rendu final si besoin
+            let scriptTag = cloneDoc.querySelector('script');
+            
+            let htmlContent = "<!DOCTYPE html>\n" + cloneDoc.outerHTML;
+            
+            let blob = new Blob([htmlContent], { type: 'text/html' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'achat-revente.html';
+            a.click();
+        }
+
+        // Initialisation au chargement
+        renderGrid();
     </script>
 </body>
 </html>
